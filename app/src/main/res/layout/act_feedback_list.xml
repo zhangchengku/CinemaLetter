@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/act_bg01"
+    android:orientation="vertical">
+
+    <include layout="@layout/header_layout02" />
+    <ListView
+        android:id="@+id/game_list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:divider="@null"
+        android:scrollbars="none" />
+
+    <TextView
+        android:id="@+id/add"
+        android:background="#32b8e8"
+        android:text="添加意见反馈"
+        android:gravity="center"
+        android:textColor="#FFFFFF"
+        android:textSize="17dp"
+        android:layout_width="match_parent"
+        android:layout_height="55dp" />
+</LinearLayout>

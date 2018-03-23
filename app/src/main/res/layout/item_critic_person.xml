@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <com.meg7.widget.CircleImageView
+            android:id="@+id/person_img"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:layout_marginTop="11dp"
+            android:layout_marginLeft="11dp"
+            android:layout_centerInParent="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/default_head_img" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_marginTop="11dp"
+            android:layout_marginLeft="11dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="34dp">
+                <TextView
+                    android:id="@+id/nickname"
+                    android:layout_gravity="center_vertical"
+                    android:text="小蜗牛"
+                    android:textColor="#808080"
+                    android:textSize="15dp"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content" />
+                <com.hedgehog.ratingbar.RatingBar
+                    xmlns:hedgehog="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/ratingbar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_gravity="center"
+                    hedgehog:clickable="false"
+                    hedgehog:halfstart="false"
+                    hedgehog:starCount="5"
+                    hedgehog:starEmpty="@drawable/hui"
+                    hedgehog:starFill="@drawable/liang"
+                    hedgehog:starHalf="@drawable/ban"
+                    hedgehog:starImageHeight="20dp"
+                    hedgehog:starImagePadding="6dp"
+                    hedgehog:starImageWidth="20dp" />
+                <TextView
+                    android:id="@+id/score"
+                    android:textSize="13dp"
+                    android:textColor="#eb5e3a"
+                    android:layout_marginRight="11dp"
+                    android:layout_gravity="center_vertical"
+                    android:text=""
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+            <TextView
+                android:id="@+id/person_name"
+                android:text=""
+                android:maxLines="3"
+                android:ellipsize="end"
+                android:textSize="15dp"
+                android:textColor="#4c4c4c"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="34dp">
+                <TextView
+                    android:id="@+id/createTime"
+                    android:layout_gravity="center_vertical"
+                    android:text=""
+                    android:layout_marginRight="10dp"
+                    android:textColor="#bfbfbf"
+                    android:textSize="13dp"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content" />
+                <LinearLayout
+                    android:id="@+id/dian"
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:id="@+id/dianzan"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="7dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_width="15dp"
+                        android:layout_height="15dp" />
+                    <TextView
+                        android:id="@+id/upvoteNum"
+                        android:layout_marginRight="11dp"
+                        android:layout_gravity="center_vertical"
+                        android:text="136"
+                        android:textSize="15dp"
+                        android:textColor="#808080"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
