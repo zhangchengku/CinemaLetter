@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/act_bg01"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+    <include layout="@layout/header_layout02" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="47dp">
+        <TextView
+            android:background="#ffffff"
+            android:text="未完成"
+            android:gravity="center"
+            android:id="@+id/movie"
+            android:textSize="@dimen/text_big"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+        <TextView
+            android:background="#ffffff"
+            android:text="已完成"
+            android:gravity="center"
+            android:textSize="@dimen/text_big"
+            android:id="@+id/article"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#e7e7e7" />
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        />
+</LinearLayout>

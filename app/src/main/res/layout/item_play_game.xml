@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="112dp"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+
+        <ImageView
+            android:id="@+id/game_img"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginLeft="@dimen/margin_top"
+            android:scaleType="fitXY" />
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/margin_top">
+
+            <TextView
+                android:id="@+id/game_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:singleLine="true"
+                android:text="游戏A"
+                android:textColor="@color/text_big"
+                android:textSize="@dimen/text_big" />
+
+
+            <TextView
+                android:id="@+id/game_message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/game_name"
+                android:layout_marginTop="@dimen/margin_top"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:text="多少度胡撒的帯撒花広撒"
+                android:textColor="@color/text_small"
+                android:textSize="@dimen/text_center" />
+
+
+            <TextView
+                android:id="@+id/game_integral"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:text="+10"
+                android:textColor="#e7271d"
+                android:textSize="@dimen/text_center" />
+
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>

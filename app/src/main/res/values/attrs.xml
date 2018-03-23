@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="PullToZoomView">
+        <attr name="headerView" format="reference" />
+        <attr name="contentView" format="reference" />
+        <attr name="zoomView" format="reference" />
+        <attr name="isHeaderParallax" format="boolean" />
+    </declare-styleable>
+
+
+    <declare-styleable name="SeatTableView">
+        <attr name="seat_checked" format="reference" />
+        <attr name="seat_sold" format="reference" />
+        <attr name="seat_available" format="reference" />
+        <attr name="overview_checked" format="color" />
+        <attr name="overview_sold" format="color" />
+        <attr name="txt_color" format="color" />
+        <attr name="seat_friends" format="color" />
+        <attr name="seat_friends_left" format="color" />
+        <attr name="seat_friends_right" format="color" />
+        <attr name="seat_friends_left_checked" format="color" />
+        <attr name="seat_friends_right_checked" format="color" />
+        <attr name="seat_friends_left_checked_dis" format="color" />
+        <attr name="seat_friends_right_checked_dis" format="color" />
+    </declare-styleable>
+
+    <string-array name="pnw_date_time_range">
+        <item>今天</item>
+        <item>明天</item>
+        <item>后天</item>
+    </string-array>
+
+    <!--一個下載的進度條-->
+    <declare-styleable name="HorizontalProgressBarWithNumber">
+        <attr name="progress_unreached_color" format="color" />
+        <attr name="progress_reached_color" format="color" />
+        <attr name="progress_reached_bar_height" format="dimension" />
+        <attr name="progress_unreached_bar_height" format="dimension" />
+        <attr name="progress_text_size" format="dimension" />
+        <attr name="progress_text_color" format="color" />
+        <attr name="progress_text_offset" format="dimension" />
+        <attr name="progress_text_visibility" format="enum">
+            <enum name="visible" value="0" />
+            <enum name="invisible" value="1" />
+        </attr>
+    </declare-styleable>
+
+</resources>

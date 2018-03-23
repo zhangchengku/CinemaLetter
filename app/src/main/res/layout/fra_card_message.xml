@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/act_bg01"
+    android:orientation="vertical">
+    <include layout="@layout/header_layout02" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="212dp"
+        android:background="@drawable/kapian">
+
+
+        <TextView
+            android:id="@+id/card_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="39dp"
+            android:layout_marginTop="28dp"
+            android:text="NO.00600033568"
+            android:textColor="#d9b658"
+            android:textSize="@dimen/text_big" />
+
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/my_balance"
+        android:layout_width="match_parent"
+        android:layout_height="47dp"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/huiyuanka"
+            android:layout_width="17dp"
+            android:layout_height="17dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/margin_top"
+            android:background="@drawable/wodeyue" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/margin_top"
+            android:layout_toRightOf="@+id/huiyuanka"
+            android:text="我的余额"
+            android:textColor="@color/text_big"
+            android:textSize="@dimen/text_big" />
+
+        <ImageView
+            android:id="@+id/right01"
+            android:layout_width="6dp"
+            android:layout_height="10dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/margin_top"
+            android:background="@drawable/xijiantou" />
+
+        <TextView
+            android:id="@+id/card_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/margin_top"
+            android:layout_toLeftOf="@+id/right01"
+            android:text="¥436.00"
+            android:textColor="#e7271d"
+            android:textSize="@dimen/text_center" />
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="@dimen/margin_top"
+            android:background="@color/act_bg01" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="47dp"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/jifen"
+            android:layout_width="17dp"
+            android:layout_height="17dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/margin_top"
+            android:background="@drawable/wodejifen" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/margin_top"
+            android:layout_toRightOf="@+id/jifen"
+            android:text="我的积分"
+            android:textColor="@color/text_big"
+            android:textSize="@dimen/text_big" />
+
+        <ImageView
+            android:id="@+id/right02"
+            android:layout_width="6dp"
+            android:layout_height="10dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/margin_top"
+            android:background="@drawable/xijiantou" />
+
+        <TextView
+            android:id="@+id/card_jifen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/margin_top"
+            android:layout_toLeftOf="@+id/right02"
+            android:text="200"
+            android:textColor="@color/text_big"
+            android:textSize="@dimen/text_center" />
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="@dimen/margin_top"
+            android:background="@color/act_bg01" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="47dp"
+        android:background="@color/white"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/juan"
+            android:layout_width="17dp"
+            android:layout_height="17dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/margin_top"
+            android:background="@drawable/wodequan" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/margin_top"
+            android:layout_toRightOf="@+id/juan"
+            android:text="我的券"
+            android:textColor="@color/text_big"
+            android:textSize="@dimen/text_big" />
+
+        <ImageView
+            android:id="@+id/right03"
+            android:layout_width="6dp"
+            android:layout_height="10dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/margin_top"
+            android:background="@drawable/xijiantou" />
+
+        <TextView
+            android:id="@+id/card_juanNum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/margin_top"
+            android:layout_toLeftOf="@+id/right03"
+            android:text="1张"
+            android:textColor="@color/text_big"
+            android:textSize="@dimen/text_center" />
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="@dimen/margin_top"
+            android:background="@color/act_bg01" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/card_qrCode"
+        android:layout_width="match_parent"
+        android:layout_height="47dp"
+        android:layout_marginTop="7dp"
+        android:background="@color/white"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/erweima"
+            android:layout_width="17dp"
+            android:layout_height="17dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/margin_top"
+            android:background="@drawable/erweima" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/margin_top"
+            android:layout_toRightOf="@+id/erweima"
+            android:text="我的二维码"
+            android:textColor="@color/text_big"
+            android:textSize="@dimen/text_big" />
+
+        <ImageView
+            android:layout_width="6dp"
+            android:layout_height="10dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/margin_top"
+            android:background="@drawable/xijiantou" />
+
+    </RelativeLayout>
+
+</LinearLayout>

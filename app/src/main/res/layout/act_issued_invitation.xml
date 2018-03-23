@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/submit_button"
+        android:layout_width="match_parent"
+        android:layout_height="47dp"
+        android:layout_alignParentBottom="true"
+        android:background="#0d0d0d"
+        android:gravity="center"
+        android:text="确认发布"
+        android:textColor="#32b8e8"
+        android:textSize="16dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/submit_button"
+        android:background="@color/act_bg01"
+        android:orientation="vertical">
+
+        <include layout="@layout/header_layout02" />
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@color/white">
+
+            <TextView
+                android:id="@+id/cinema_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_top"
+                android:layout_marginTop="@dimen/margin_top"
+                android:text="德信滨江店"
+                android:textColor="@color/text_big"
+                android:textSize="@dimen/text_big" />
+
+
+            <TextView
+                android:id="@+id/cinema_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="@dimen/margin_top"
+                android:layout_marginLeft="@dimen/margin_top"
+                android:text="火炬大道东冠社区"
+                android:textColor="@color/text_small"
+                android:textSize="@dimen/text_small" />
+
+
+            <TextView
+                android:id="@+id/update_cinema"
+                android:layout_width="57dp"
+                android:layout_height="17dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/margin_top"
+                android:layout_marginTop="@dimen/margin_top"
+                android:background="@drawable/lable_bg"
+                android:gravity="center"
+                android:text="更换影院"
+                android:textColor="#32b8e8"
+                android:textSize="@dimen/text_small" />
+
+
+            <TextView
+                android:id="@+id/cinema_distance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginBottom="@dimen/margin_top"
+                android:layout_marginRight="@dimen/margin_top"
+                android:text="1.4km"
+                android:textColor="@color/text_small"
+                android:textSize="@dimen/text_small" />
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/select_people_num"
+            android:layout_width="match_parent"
+            android:layout_height="47dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/white">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/margin_top"
+                android:text="请选择人数"
+                android:textColor="@color/text_big"
+                android:textSize="@dimen/text_big" />
+
+            <ImageView
+                android:id="@+id/right_img_01"
+                android:layout_width="6dp"
+                android:layout_height="10dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/margin_top"
+                android:background="@drawable/huijiantou" />
+
+
+            <TextView
+                android:id="@+id/people_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/margin_top"
+                android:layout_toLeftOf="@+id/right_img_01"
+                android:text="1人"
+                android:textColor="@color/text_big"
+                android:textSize="13dp" />
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="@dimen/margin_top"
+                android:background="@color/act_bg01" />
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/select_date"
+            android:layout_width="match_parent"
+            android:layout_height="47dp"
+            android:background="@color/white">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/margin_top"
+                android:text="请选择日期"
+                android:textColor="@color/text_big"
+                android:textSize="@dimen/text_big" />
+
+            <ImageView
+                android:id="@+id/right_img_02"
+                android:layout_width="6dp"
+                android:layout_height="10dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/margin_top"
+                android:background="@drawable/huijiantou" />
+
+
+            <TextView
+                android:id="@+id/date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/margin_top"
+                android:layout_toLeftOf="@+id/right_img_02"
+                android:text="2017-5-18"
+                android:textColor="@color/text_big"
+                android:textSize="13dp" />
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="@dimen/margin_top"
+                android:background="@color/act_bg01" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/select_time"
+            android:layout_width="match_parent"
+            android:layout_height="47dp"
+            android:background="@color/white">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/margin_top"
+                android:text="请选择时间"
+                android:textColor="@color/text_big"
+                android:textSize="@dimen/text_big" />
+
+            <ImageView
+                android:id="@+id/right_img_03"
+                android:layout_width="6dp"
+                android:layout_height="10dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/margin_top"
+                android:background="@drawable/huijiantou" />
+
+
+            <TextView
+                android:id="@+id/time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/margin_top"
+                android:layout_toLeftOf="@+id/right_img_03"
+                android:text="19:00-21:00"
+                android:textColor="@color/text_big"
+                android:textSize="13dp" />
+
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/margin_top"
+            android:text="选择想看的电影"
+            android:textColor="@color/text_big"
+            android:textSize="@dimen/text_big" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp" />
+
+    </LinearLayout>
+</RelativeLayout>

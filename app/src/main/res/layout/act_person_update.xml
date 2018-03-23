@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/act_bg01"
+    android:orientation="vertical">
+
+    <include layout="@layout/header_layout02" />
+
+    <LinearLayout
+        android:id="@+id/person_name_layout"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="22dp"
+        android:layout_marginRight="22dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_top"
+            android:text="昵称："
+            android:textColor="@color/text_small"
+            android:textSize="@dimen/text_center" />
+
+
+        <EditText
+            android:id="@+id/person_name_edit"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#00000000"
+            android:hint="输入昵称"
+            android:textColor="@color/text_big"
+            android:textColorHint="@color/text_small"
+            android:textSize="@dimen/text_small" />
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/update_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="22dp"
+            android:layout_marginRight="22dp"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_top"
+                android:text="原始密码"
+                android:textColor="@color/text_big"
+                android:textSize="@dimen/text_center" />
+
+
+            <EditText
+                android:id="@+id/old_pass"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/margin_top"
+                android:background="#00000000"
+                android:ellipsize="end"
+                android:hint="请输入原始密码"
+                android:maxLength="20"
+                android:password="true"
+                android:textColor="@color/text_style01"
+                android:textColorHint="@color/text_style01"
+                android:textSize="@dimen/text_center" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="22dp"
+            android:layout_marginRight="22dp"
+            android:layout_marginTop="@dimen/margin_top"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_top"
+                android:text="新的密码"
+                android:textColor="@color/text_big"
+                android:textSize="@dimen/text_center" />
+
+
+            <EditText
+                android:id="@+id/new_pass"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/margin_top"
+                android:background="#00000000"
+                android:ellipsize="end"
+                android:hint="请输入新的密码"
+                android:maxLength="20"
+                android:password="true"
+                android:textColor="@color/text_style01"
+                android:textColorHint="@color/text_style01"
+                android:textSize="@dimen/text_center" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="22dp"
+            android:layout_marginRight="22dp"
+            android:layout_marginTop="@dimen/margin_top"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_top"
+                android:text="确认密码"
+                android:textColor="@color/text_big"
+                android:textSize="@dimen/text_center" />
+
+
+            <EditText
+                android:id="@+id/affirm_pass"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/margin_top"
+                android:background="#00000000"
+                android:ellipsize="end"
+                android:hint="请确认新的密码"
+                android:maxLength="20"
+                android:password="true"
+                android:textColor="@color/text_style01"
+                android:textColorHint="@color/text_style01"
+                android:textSize="@dimen/text_center" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/update_button"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="22dp"
+        android:layout_marginRight="22dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_bule"
+        android:text="完成"
+        android:textColor="@color/white"
+        android:textSize="16dp" />
+
+
+</LinearLayout>

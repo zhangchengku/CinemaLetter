@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:id="@+id/pay_weixin"
+        android:layout_width="match_parent"
+        android:layout_height="47dp"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/weixin"
+            android:layout_width="32dp"
+            android:layout_height="21dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/margin_top"
+            android:background="@drawable/weixin" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/margin_top"
+            android:layout_toRightOf="@+id/weixin"
+            android:text="微信支付"
+            android:textColor="@color/text_big"
+            android:textSize="@dimen/text_big" />
+
+        <ImageView
+            android:layout_width="6dp"
+            android:layout_height="10dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/margin_top"
+            android:background="@drawable/xijiantou" />
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="@dimen/margin_top"
+            android:background="@color/act_bg01" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/pay_zhifubao"
+        android:layout_width="match_parent"
+        android:layout_height="47dp"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/zhifubao"
+            android:layout_width="32dp"
+            android:layout_height="21dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/margin_top"
+            android:background="@drawable/zhifubao" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/margin_top"
+            android:layout_toRightOf="@+id/zhifubao"
+            android:text="支付宝支付"
+            android:textColor="@color/text_big"
+            android:textSize="@dimen/text_big" />
+
+        <ImageView
+            android:layout_width="6dp"
+            android:layout_height="10dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/margin_top"
+            android:background="@drawable/xijiantou" />
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="@dimen/margin_top"
+            android:background="@color/act_bg01" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/pay_zhifuba"
+        android:layout_width="match_parent"
+        android:layout_height="47dp"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/zhifuba"
+            android:layout_width="32dp"
+            android:layout_height="21dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/margin_top"
+            android:background="@drawable/duihuanquan" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/margin_top"
+            android:layout_toRightOf="@+id/zhifuba"
+            android:text="电影兑换劵"
+            android:textColor="@color/text_big"
+            android:textSize="@dimen/text_big" />
+
+        <ImageView
+            android:id="@+id/duihuanjuan"
+            android:layout_width="6dp"
+            android:layout_height="10dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/margin_top"
+            android:background="@drawable/xijiantou" />
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="@dimen/margin_top"
+            android:background="@color/act_bg01" />
+    </RelativeLayout>
+    <LinearLayout
+        android:id="@+id/liner_sr"
+        android:visibility="gone"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="54dp">
+        <EditText
+            android:id="@+id/edit_text"
+            android:background="@drawable/button_duihuanju"
+            android:hint="请输入兑换码"
+            android:textSize="13dp"
+            android:textColor="#1a1a1a"
+            android:textColorHint="#999999"
+            android:paddingLeft="15dp"
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="center_vertical"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:phoneNumber="true"
+            android:layout_height="30dp" />
+
+        <TextView
+            android:id="@+id/text_dh"
+            android:text="兑换"
+            android:textSize="13dp"
+            android:textColor="#ffffff"
+            android:gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/buttom_zhifubaobao"
+            android:layout_width="100dp"
+            android:layout_height="30dp" />
+    </LinearLayout>
+
+</LinearLayout>

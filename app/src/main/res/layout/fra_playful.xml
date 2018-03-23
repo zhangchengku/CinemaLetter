@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/act_bg01"
+    android:orientation="vertical">
+
+
+    <!--<View
+        android:layout_width="match_parent"
+        android:layout_height="24dp"
+        android:background="@color/act_header_bg_black" />-->
+
+    <include layout="@layout/header_layout02" />
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipe"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:id="@+id/choujiang_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="47dp"
+                    android:background="@color/white"
+                    android:visibility="gone">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+
+                        android:orientation="horizontal">
+
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="15dp"
+                            android:layout_marginLeft="@dimen/margin_top"
+                            android:background="@drawable/jifen" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="6dp"
+                            android:text="我的金币"
+                            android:textColor="@color/text_small"
+                            android:textSize="@dimen/text_center" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="6dp"
+                            android:text="880"
+                            android:textColor="#e7271d"
+                            android:textSize="@dimen/text_big" />
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="6dp"
+                            android:text="小金币 抽大奖"
+                            android:textColor="#e7271d"
+                            android:textSize="@dimen/text_center" />
+
+                        <ImageView
+                            android:layout_width="28dp"
+                            android:layout_height="28dp"
+                            android:layout_marginRight="@dimen/margin_top"
+                            android:background="@drawable/zhuanpan" />
+
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+
+                <!-- 设置普通指示器 -->
+                <com.donkingliang.banner.CustomBanner
+                    android:id="@+id/banner"
+                    android:layout_width="match_parent"
+                    android:layout_height="160dp"
+                    app:indicatorInterval="5dp"
+                    app:indicatorSelectRes="@drawable/landian"
+                    app:indicatorStyle="ORDINARY"
+                    app:indicatorUnSelectRes="@drawable/baidian" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@color/white"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:id="@+id/duihuan_all"
+                        android:layout_width="match_parent"
+                        android:layout_height="37dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/margin_top"
+                            android:text="兑换专区"
+                            android:textColor="@color/text_big"
+                            android:textSize="@dimen/text_big" />
+
+
+                        <ImageView
+                            android:id="@+id/right_img"
+                            android:layout_width="6dp"
+                            android:layout_height="10dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="@dimen/margin_top"
+                            android:background="@drawable/huijiantou" />
+
+
+                        <TextView
+                            android:id="@+id/look_at_more"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="6dp"
+                            android:layout_toLeftOf="@+id/right_img"
+                            android:text="查看全部"
+                            android:textColor="@color/text_style02"
+                            android:textSize="@dimen/text_small" />
+
+
+                    </RelativeLayout>
+
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/recyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:paddingLeft="@dimen/margin_top"
+                        android:weightSum="3"
+                        ></android.support.v7.widget.RecyclerView>
+
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="38dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="@dimen/margin_top"
+                    android:text="赚取金币"
+                    android:textColor="@color/text_big"
+                    android:textSize="@dimen/text_big" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:layout_marginTop="1dp"
+                    android:id="@+id/jinbirecy"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+        </ScrollView>
+
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+</LinearLayout>

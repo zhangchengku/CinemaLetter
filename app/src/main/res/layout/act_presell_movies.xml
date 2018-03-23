@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/content_layout"
+    android:background="@color/act_bg01">
+
+
+    <TextView
+        android:id="@+id/submit_button"
+        android:layout_width="match_parent"
+        android:layout_height="47dp"
+        android:layout_alignParentBottom="true"
+        android:background="#0d0d0d"
+        android:gravity="center"
+        android:text="选座购票"
+        android:textColor="#32b8e8"
+        android:textSize="16dp" />
+
+    <include
+        android:id="@+id/header"
+        layout="@layout/header_layout02" />
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/submit_button"
+        android:layout_below="@+id/header"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/act_bg01"
+            android:orientation="vertical">
+
+
+            <RelativeLayout
+                android:id="@+id/video"
+                android:layout_width="match_parent"
+                android:layout_height="203dp">
+
+                <ImageView
+                    android:id="@+id/video_img"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/zhanwei2"
+                    android:scaleType="fitXY" />
+
+                <ImageView
+                    android:id="@+id/video_start"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/bofang" />
+
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/movie_img_bac"
+                android:layout_width="match_parent"
+                android:layout_height="145dp"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/movies_detail_bg"
+                android:gravity="bottom"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/movie_img"
+                    android:layout_width="96dp"
+                    android:layout_height="134dp"
+                    android:layout_marginLeft="@dimen/margin_top"
+                    android:background="@drawable/zhanwei1"
+                    android:scaleType="fitXY" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_top"
+                    android:layout_marginRight="@dimen/margin_top"
+                    android:layout_toRightOf="@+id/movie_img_layout"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="11dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/movies_name"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:ellipsize="end"
+                            android:singleLine="true"
+                            android:text="拆弹专家"
+                            android:textColor="@color/white"
+                            android:textSize="18dp" />
+
+                        <ImageView
+                            android:id="@+id/movie_type_img"
+                            android:layout_width="49dp"
+                            android:layout_height="17dp"
+                            android:layout_marginLeft="@dimen/margin_top"
+                            android:background="@drawable/img_2d" />
+
+
+                    </LinearLayout>
+
+
+                    <TextView
+                        android:id="@+id/movie_intro"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_top"
+                        android:ellipsize="end"
+                        android:singleLine="true"
+                        android:text="拆弹专家追击炸弹狂徒"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_center" />
+
+
+                    <TextView
+                        android:id="@+id/movie_type"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:ellipsize="end"
+                        android:singleLine="true"
+                        android:text="动作 惊悚 犯罪"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_small" />
+
+                    <TextView
+                        android:id="@+id/movie_start_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="2017-4-17在中国大陆上映 "
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_small" />
+
+
+                    <TextView
+                        android:id="@+id/movie_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginTop="9dp"
+                        android:text="时长 | 136分钟"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_small" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <include layout="@layout/movies_content_view" />
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</RelativeLayout>

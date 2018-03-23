@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/act_bg01"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <include layout="@layout/header_layout02" />
+
+
+    <TextView
+        android:id="@+id/movies_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="22dp"
+        android:text="摔跤吧！爸爸"
+        android:textColor="@color/text_big"
+        android:textSize="16dp" />
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="我的评分："
+            android:textColor="@color/text_small"
+            android:textSize="@dimen/text_center" />
+
+
+        <TextView
+            android:id="@+id/grade_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="8.0分"
+            android:textColor="#eb5e3a"
+            android:textSize="@dimen/text_center" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.hedgehog.ratingbar.RatingBar xmlns:hedgehog="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/ratingbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="22dp"
+            hedgehog:clickable="true"
+            hedgehog:halfstart="false"
+            hedgehog:starCount="5"
+            hedgehog:starEmpty="@drawable/hui"
+            hedgehog:starFill="@drawable/liang"
+            hedgehog:starHalf="@drawable/ban"
+            hedgehog:starImageHeight="45dp"
+            hedgehog:starImagePadding="20dp"
+            hedgehog:starImageWidth="45dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/ratingbar"
+            android:layout_alignRight="@+id/ratingbar"
+            android:layout_below="@+id/ratingbar"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingLeft="3dp"
+                android:text="极差"
+                android:textColor="@color/text_small"
+                android:textSize="10dp" />
+
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingLeft="3dp"
+                android:text="较差"
+                android:textColor="@color/text_small"
+                android:textSize="10dp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingLeft="3dp"
+                android:text="一般"
+                android:textColor="@color/text_small"
+                android:textSize="10dp" />
+
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingLeft="3dp"
+                android:text="不错"
+                android:textColor="@color/text_small"
+                android:textSize="10dp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingLeft="3dp"
+                android:text="很好"
+                android:textColor="@color/text_small"
+                android:textSize="10dp" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+    <EditText
+        android:id="@+id/edit_pinglun"
+        android:layout_width="match_parent"
+        android:layout_height="169dp"
+        android:layout_marginLeft="22dp"
+        android:layout_marginRight="22dp"
+        android:layout_marginTop="28dp"
+        android:background="@color/white"
+        android:gravity="left"
+        android:hint="点击输入评论"
+        android:padding="@dimen/margin_top"
+        android:textColor="@color/text_big"
+        android:textColorHint="#b2b2b2"
+        android:textSize="@dimen/text_center" />
+
+
+    <Button
+        android:id="@+id/submit_button"
+        android:layout_width="match_parent"
+        android:layout_height="37dp"
+        android:layout_marginLeft="22dp"
+        android:layout_marginRight="22dp"
+        android:layout_marginTop="22dp"
+        android:background="@drawable/button_yello"
+        android:text="提交"
+        android:textColor="@color/white"
+        android:textSize="16dp" />
+
+
+</LinearLayout>

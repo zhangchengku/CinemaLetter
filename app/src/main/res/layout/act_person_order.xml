@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/act_bg01"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+
+    <include layout="@layout/header_layout02" />
+
+
+    <RadioGroup
+        android:id="@+id/radio_layout"
+        android:layout_width="match_parent"
+        android:layout_height="47dp"
+        android:orientation="horizontal">
+
+
+        <RadioButton
+            android:id="@+id/cinema_message"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/radio_bg"
+            android:button="@null"
+            android:checked="true"
+            android:gravity="center"
+            android:text="未完成"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_big" />
+
+
+        <RadioButton
+            android:id="@+id/hot_enent"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/radio_bg"
+            android:button="@null"
+            android:gravity="center"
+            android:text="已完成"
+            android:textColor="#32e8e8"
+            android:textSize="@dimen/text_big" />
+
+    </RadioGroup>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#e7e7e7" />
+    <com.myp.cinema.widget.swiferefresh.SwipeRefreshVie
+        android:id="@+id/swipe"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <ListView
+            android:id="@+id/recyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_top"
+            android:layout_marginRight="@dimen/margin_top" />
+
+
+    </com.myp.cinema.widget.swiferefresh.SwipeRefreshVie>
+
+
+
+    <LinearLayout
+        android:id="@+id/none_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="90dp"
+            android:layout_height="73dp"
+            android:layout_marginTop="56dp"
+            android:background="@drawable/wudingdan" />
+
+
+        <TextView
+            android:id="@+id/none_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            android:text="您当前暂无未支付订单"
+            android:textColor="@color/text_small"
+            android:textSize="16dp" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

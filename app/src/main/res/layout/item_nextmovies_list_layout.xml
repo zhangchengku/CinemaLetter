@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="110dp"
+    android:descendantFocusability="blocksDescendants"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="110dp"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:id="@+id/movie_img_layout"
+            android:layout_width="62dp"
+            android:layout_height="87dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="11dp"
+            android:background="@drawable/zhanwei1">
+
+            <ImageView
+                android:id="@+id/movie_img"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY" />
+
+
+            <ImageView
+                android:layout_width="23dp"
+                android:layout_height="23dp"
+                android:layout_centerInParent="true"
+                android:background="@drawable/shipin1"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="11dp"
+            android:layout_toRightOf="@+id/movie_img_layout"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="11dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/movies_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="拆弹专家"
+                    android:textColor="@color/text_big"
+                    android:textSize="@dimen/text_big" />
+
+                <ImageView
+                    android:id="@+id/movie_type"
+                    android:layout_width="49dp"
+                    android:layout_height="17dp"
+                    android:layout_marginLeft="6dp"
+                    android:background="@drawable/img_2d" />
+
+
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/moive_message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:ellipsize="end"
+                android:maxLength="15"
+                android:singleLine="true"
+                android:text="拆弹专家追击炸弹狂徒"
+                android:textColor="#454545"
+                android:textSize="@dimen/text_center" />
+
+
+            <TextView
+                android:id="@+id/movie_class"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="动作 惊悚 犯罪"
+                android:textColor="@color/text_small"
+                android:textSize="@dimen/text_small" />
+
+            <TextView
+                android:id="@+id/movie_person"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text=""
+                android:textColor="@color/text_small"
+                android:textSize="@dimen/text_small" />
+
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/movie_presell"
+            android:layout_width="51dp"
+            android:layout_height="25dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/margin_top"
+            android:background="@drawable/submit_button_yello"
+            android:text="预售"
+            android:textColor="#ffffff"
+            android:textSize="@dimen/text12"
+            android:visibility="gone" />
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="@dimen/margin_top"
+            android:layout_marginRight="@dimen/margin_top"
+            android:background="@color/line_bg" />
+
+    </RelativeLayout>
+
+
+</LinearLayout>

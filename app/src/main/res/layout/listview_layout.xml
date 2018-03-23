@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/act_bg01"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <include layout="@layout/header_layout02" />
+
+    <ListView
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@null" />
+
+
+    <LinearLayout
+        android:id="@+id/none_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="108dp"
+            android:layout_height="55dp"
+            android:layout_marginTop="66dp"
+            android:background="@drawable/meiyoufabu" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            android:text="您当前还没有约会哦！"
+            android:textColor="@color/text_big"
+            android:textSize="16dp" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

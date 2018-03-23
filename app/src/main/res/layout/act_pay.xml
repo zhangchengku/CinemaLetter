@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/act_bg01">
+
+
+    <LinearLayout
+        android:id="@+id/buttom_layout"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_alignParentBottom="true"
+        android:background="#0d0d0d"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_top"
+            android:text="总价："
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_big" />
+
+        <TextView
+            android:id="@+id/order_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="¥ 70"
+            android:textColor="#32b8e8"
+            android:textSize="17dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/other_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:text="(含服务费¥3/张)"
+            android:textColor="#32b8e8"
+            android:textSize="@dimen/text_small" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="right|center_vertical"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+
+            <Button
+                android:id="@+id/submit_button"
+                android:layout_width="102dp"
+                android:layout_height="33dp"
+                android:layout_marginRight="@dimen/margin_top"
+                android:background="@drawable/button_bule"
+                android:gravity="center"
+                android:text="确认支付"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_big" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/buttom_layout"
+        android:orientation="vertical">
+
+        <include layout="@layout/header_layout02" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/margin_top"
+                android:text="请选择会员卡或更换支付方式"
+                android:textColor="@color/text_big"
+                android:textSize="@dimen/text_big" />
+
+
+            <TextView
+                android:id="@+id/count_down_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/margin_top"
+                android:text="00:00"
+                android:textColor="#e7271d"
+                android:textSize="@dimen/text12" />
+
+
+            <ImageView
+                android:layout_width="17dp"
+                android:layout_height="17dp"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="6dp"
+                android:layout_toLeftOf="@+id/count_down_time"
+                android:background="@drawable/shijian" />
+
+        </RelativeLayout>
+
+
+        <RadioGroup
+            android:id="@+id/radio_layout"
+            android:layout_width="match_parent"
+            android:layout_height="47dp"
+            android:orientation="horizontal">
+
+
+            <RadioButton
+                android:id="@+id/pay_card"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/radio_bg"
+                android:button="@null"
+                android:checked="true"
+                android:gravity="center"
+                android:text="会员卡支付"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_big" />
+
+
+            <RadioButton
+                android:id="@+id/pay_ment"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/radio_bg"
+                android:button="@null"
+                android:gravity="center"
+                android:text="网上支付"
+                android:textColor="#32e8e8"
+                android:textSize="@dimen/text_big" />
+
+        </RadioGroup>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="#d9d9d9" />
+
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white" />
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>

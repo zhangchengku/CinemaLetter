@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/act_bg01"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <include layout="@layout/header_layout02" />
+
+
+    <EditText
+        android:id="@+id/edit_feed"
+        android:layout_width="match_parent"
+        android:layout_height="170dp"
+        android:layout_marginLeft="23dp"
+        android:layout_marginRight="22dp"
+        android:layout_marginTop="22dp"
+        android:background="@color/white"
+        android:gravity="left"
+        android:hint="点击输入您的宝贵意见吧..."
+        android:padding="@dimen/margin_top"
+        android:textColor="@color/text_big"
+        android:textColorHint="#b2b2b2"
+        android:textSize="15dp" />
+
+
+    <EditText
+        android:id="@+id/edit_phone"
+        android:layout_width="match_parent"
+        android:layout_height="37dp"
+        android:layout_marginLeft="23dp"
+        android:layout_marginRight="22dp"
+        android:layout_marginTop="22dp"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:hint="请留下你的手机号..."
+        android:maxLength="11"
+        android:paddingLeft="@dimen/margin_top"
+        android:phoneNumber="true"
+        android:textColor="@color/text_big"
+        android:textColorHint="#b2b2b2"
+        android:textSize="@dimen/text13" />
+
+
+    <Button
+        android:id="@+id/submit"
+        android:layout_width="146dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="56dp"
+        android:background="@drawable/button_bule"
+        android:text="确定提交"
+        android:textColor="@color/white"
+        android:textSize="17dp" />
+
+</LinearLayout>

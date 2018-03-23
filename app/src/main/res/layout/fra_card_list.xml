@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:id="@+id/no_card_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="58dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="您还没有添加会员卡"
+            android:textColor="@color/text_big"
+            android:textSize="16dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_top"
+            android:text="添加影院会员卡、享受会员折扣价"
+            android:textColor="@color/text_small"
+            android:textSize="@dimen/text12" />
+
+
+        <Button
+            android:id="@+id/add_card_button"
+            android:layout_width="113dp"
+            android:layout_height="38dp"
+            android:layout_marginTop="58dp"
+            android:background="@drawable/button_add_card"
+            android:gravity="center"
+            android:text="添加会员卡"
+            android:textColor="#32b8e8"
+            android:textSize="16dp" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/card_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+       >
+
+        <ListView
+            android:id="@+id/recyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:divider="@color/line_bg"
+            android:dividerHeight="1dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/line_bg" />
+
+        <Button
+            android:id="@+id/add_card"
+            android:layout_width="113dp"
+            android:layout_height="38dp"
+            android:layout_marginTop="23dp"
+            android:background="@drawable/button_add_card"
+            android:gravity="center"
+            android:text="添加会员卡"
+            android:textColor="#32b8e8"
+            android:textSize="16dp" />
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

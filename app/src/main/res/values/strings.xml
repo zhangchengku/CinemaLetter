@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">德信影城</string>
+
+    <string name="rv_loading">正在加载...</string>
+    <string name="rv_loading_complete">已加载全部内容</string>
+
+    <string name="timepicker_year">年</string>
+    <string name="timepicker_month">月</string>
+    <string name="timepicker_day">日</string>
+    <string name="timepicker_hour">时</string>
+    <string name="timepicker_min">分</string>
+    <string name="timepicker_title">选择时间</string>
+    <string name="timepicker_finish">确认</string>
+    <string name="timepicker_title_default">设置</string>
+
+    <string name="movies_message">912年4月15日，载着1316号乘客和891名船员的豪华巨轮“泰坦尼克号”与冰山相撞而沉没，
+        这场海难被认为是20世纪人间十大灾难之一。1985年，“泰坦尼克号”的沉船遗骸在北大西洋两英里半的海底被发现。
+        美国探险家洛维特（比尔·帕克斯顿 饰演）亲自潜入海底，在船舱的墙壁上看见了一幅画，
+        洛维持的发现立刻引起了一位老妇人（格劳瑞亚·斯图尔特 饰演）的注意。
+        已经是101岁高龄的露丝称她就是画中的少女。在潜水舱里，露丝开始叙述当年在船上发生的故事。</string>
+
+    <string name="order_message">注：请核对订单信息，电影票及优惠套餐售出后，因票务系统限制，将无法进行退换操作</string>
+
+    <string name="order_state1">完成座位选择后，请在15分钟内完成支付，否则票务系统将自动释放已选座位，订单将过期失效</string>
+
+    <string name="order_state2">部分影院3D眼镜需交押金，观影前请准备好现金</string>
+</resources>

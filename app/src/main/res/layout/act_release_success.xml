@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/act_bg01"
+    android:orientation="vertical">
+
+
+    <include
+        android:id="@+id/header"
+        layout="@layout/header_layout02" />
+
+    <TextView
+        android:id="@+id/back_button"
+        android:layout_width="match_parent"
+        android:layout_height="47dp"
+        android:layout_alignParentBottom="true"
+        android:background="#0d0d0d"
+        android:gravity="center"
+        android:text="返回列表"
+        android:textColor="#32b8e8"
+        android:textSize="16dp" />
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/back_button"
+        android:layout_below="@+id/header"
+        android:scrollbars="none">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="77dp"
+                android:background="@color/white">
+
+                <ImageView
+                    android:id="@+id/image"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:layout_marginLeft="14dp"
+                    android:layout_marginTop="17dp"
+                    android:background="@drawable/chenggong" />
+
+
+                <TextView
+                    android:id="@+id/text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_top"
+                    android:layout_marginTop="19dp"
+                    android:layout_toRightOf="@+id/image"
+                    android:text="邀约已发布"
+                    android:textColor="@color/text_big"
+                    android:textSize="@dimen/text_big" />
+
+
+                <TextView
+                    android:id="@+id/remain_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/text"
+                    android:layout_below="@+id/text"
+                    android:layout_marginTop="@dimen/margin_top"
+                    android:text="还剩1小时30分钟，请耐心等待"
+                    android:textColor="@color/text_small"
+                    android:textSize="@dimen/text_small" />
+
+
+            </RelativeLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/line_bg" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:gravity="bottom"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:layout_marginLeft="@dimen/margin_top"
+                    android:layout_marginTop="@dimen/margin_top"
+                    android:background="@drawable/shijianrenshu" />
+
+                <TextView
+                    android:id="@+id/time_and_peoplenum"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="2dp"
+                    android:layout_marginLeft="6dp"
+                    android:text="5月12号 19:00-21:00 3人"
+                    android:textColor="@color/text_big"
+                    android:textSize="13dp" />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:gravity="bottom"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:layout_marginLeft="@dimen/margin_top"
+                    android:layout_marginTop="@dimen/margin_top"
+                    android:background="@drawable/yingpian" />
+
+                <TextView
+                    android:id="@+id/movies_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="2dp"
+                    android:layout_marginLeft="6dp"
+                    android:text="拆弹专家、速度与激情8"
+                    android:textColor="@color/text_big"
+                    android:textSize="13dp" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:layout_marginBottom="@dimen/margin_top"
+                    android:layout_marginLeft="@dimen/margin_top"
+                    android:layout_marginTop="@dimen/margin_top"
+                    android:background="@drawable/yingyuan" />
+
+                <TextView
+                    android:id="@+id/cinema_address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="6dp"
+                    android:text="火炬大道火炬小区"
+                    android:textColor="@color/text_big"
+                    android:textSize="13dp" />
+
+
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/margin_top"
+                android:text="查看周边"
+                android:textColor="@color/text_big"
+                android:textSize="@dimen/text_big" />
+
+
+            <com.myp.cinema.widget.MyListView
+                android:id="@+id/list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:divider="@color/act_bg01"
+                android:dividerHeight="10dp"
+                android:scrollbars="none" />
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

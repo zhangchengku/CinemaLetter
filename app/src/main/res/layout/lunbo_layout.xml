@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <!-- 设置普通指示器 -->
+    <com.donkingliang.banner.CustomBanner
+        android:id="@+id/banner"
+        android:layout_width="match_parent"
+        android:layout_height="170dp"
+        app:indicatorInterval="5dp"
+        app:indicatorSelectRes="@drawable/landian"
+        app:indicatorStyle="ORDINARY"
+        app:indicatorUnSelectRes="@drawable/baidian" />
+    <com.myp.cinema.util.MyListView
+        android:id="@+id/ads_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+         />
+</LinearLayout>

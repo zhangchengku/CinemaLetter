@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/act_bg01"
+    android:orientation="vertical">
+
+    <include layout="@layout/header_layout02" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="22dp"
+        android:layout_marginRight="22dp"
+        android:layout_marginTop="64dp"
+        android:background="@drawable/edit_register_bg"
+        android:gravity="center_vertical">
+
+
+        <ImageView
+            android:layout_width="19dp"
+            android:layout_height="19dp"
+            android:layout_marginLeft="@dimen/margin_top"
+            android:layout_marginRight="@dimen/margin_top"
+            android:background="@drawable/zhanghu" />
+
+
+        <EditText
+            android:id="@+id/phone_edit"
+            android:layout_width="match_parent"
+            android:layout_height="39dp"
+            android:layout_marginRight="@dimen/margin_top"
+            android:background="@color/white"
+            android:hint="请输入手机号码"
+            android:maxLength="11"
+            android:phoneNumber="true"
+            android:textColor="@color/text_big"
+            android:textColorHint="@color/text_style01"
+            android:textSize="@dimen/text_big" />
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="22dp"
+        android:layout_marginRight="22dp"
+        android:layout_marginTop="@dimen/margin_top"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/margin_top"
+            android:layout_weight="1"
+            android:background="@drawable/edit_register_bg"
+            android:gravity="center_vertical">
+
+
+            <ImageView
+                android:layout_width="19dp"
+                android:layout_height="19dp"
+                android:layout_marginLeft="@dimen/margin_top"
+                android:layout_marginRight="@dimen/margin_top"
+                android:background="@drawable/yanzheng" />
+
+
+            <EditText
+                android:id="@+id/verification_edit"
+                android:layout_width="match_parent"
+                android:layout_height="39dp"
+                android:layout_marginRight="@dimen/margin_top"
+                android:background="@color/white"
+                android:hint="请输入验证码"
+                android:maxLength="6"
+                android:phoneNumber="true"
+                android:textColor="@color/text_big"
+                android:textColorHint="@color/text_style01"
+                android:textSize="@dimen/text_big" />
+
+
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/get_verification"
+            android:layout_width="102dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/button_yello"
+            android:gravity="center"
+            android:text="获取验证码"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_big" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="22dp"
+        android:layout_marginRight="22dp"
+        android:layout_marginTop="@dimen/margin_top"
+        android:background="@drawable/edit_register_bg"
+        android:gravity="center_vertical">
+
+
+        <ImageView
+            android:layout_width="19dp"
+            android:layout_height="19dp"
+            android:layout_marginLeft="@dimen/margin_top"
+            android:layout_marginRight="@dimen/margin_top"
+            android:background="@drawable/mima" />
+
+
+        <EditText
+            android:id="@+id/password_edit"
+            android:layout_width="match_parent"
+            android:layout_height="39dp"
+            android:layout_marginRight="@dimen/margin_top"
+            android:background="@color/white"
+            android:hint="请输入密码（6-20字符、字母或数字）"
+            android:maxLength="20"
+            android:password="true"
+            android:textColor="@color/text_big"
+            android:textColorHint="@color/text_style01"
+            android:textSize="@dimen/text_big" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="22dp"
+        android:layout_marginRight="22dp"
+        android:layout_marginTop="@dimen/margin_top"
+        android:background="@drawable/edit_register_bg"
+        android:gravity="center_vertical">
+
+
+        <ImageView
+            android:layout_width="19dp"
+            android:layout_height="19dp"
+            android:layout_marginLeft="@dimen/margin_top"
+            android:layout_marginRight="@dimen/margin_top"
+            android:background="@drawable/xingbie" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="选择性别"
+            android:textColor="@color/text_style01"
+            android:textSize="@dimen/text_big" />
+
+
+        <RadioGroup
+            android:id="@+id/radio_layout"
+            android:layout_width="match_parent"
+            android:layout_height="39dp"
+            android:layout_marginLeft="39dp"
+            android:layout_marginRight="@dimen/margin_top"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radio_nan"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:background="@drawable/radio_sex"
+                android:button="@null"
+                android:checked="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="6dp"
+                android:text="男"
+                android:textColor="@color/text_small"
+                android:textSize="@dimen/text_center" />
+
+
+            <RadioButton
+                android:id="@+id/radio_nv"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:layout_marginLeft="44dp"
+                android:background="@drawable/radio_sex"
+                android:button="@null" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="6dp"
+                android:text="女"
+                android:textColor="@color/text_small"
+                android:textSize="@dimen/text_center" />
+
+        </RadioGroup>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="22dp"
+        android:layout_marginRight="22dp"
+        android:layout_marginTop="45dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+
+        <CheckBox
+            android:id="@+id/checkbox"
+            android:layout_width="11dp"
+            android:layout_height="11dp"
+            android:layout_marginLeft="@dimen/margin_top"
+            android:background="@drawable/radio_consent"
+            android:button="@null"
+            android:checked="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6dp"
+            android:text="我已阅读并同意《德信影城服务条款》"
+            android:textColor="@color/text_style01"
+            android:textSize="@dimen/text_center" />
+
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/register_button"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="22dp"
+        android:layout_marginRight="22dp"
+        android:layout_marginTop="@dimen/margin_top"
+        android:background="@drawable/button_bule"
+        android:text="注册"
+        android:textColor="@color/white"
+        android:textSize="16dp" />
+
+
+</LinearLayout>

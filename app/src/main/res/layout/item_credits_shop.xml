@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="112dp"
+        android:background="@color/white">
+
+
+        <ImageView
+            android:id="@+id/shop_img"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/margin_top"
+            android:background="@drawable/zhanwei1"
+            android:scaleType="fitXY" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignBottom="@+id/shop_img"
+            android:layout_alignTop="@+id/shop_img"
+            android:layout_marginLeft="@dimen/margin_top"
+            android:layout_toRightOf="@+id/shop_img"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/shop_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:singleLine="true"
+                android:text="商品名称"
+                android:textColor="@color/text_big"
+                android:textSize="@dimen/text_big" />
+
+            <TextView
+                android:id="@+id/shop_message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_top"
+                android:maxLines="2"
+                android:text="商品介绍"
+                android:textColor="@color/text_small"
+                android:textSize="@dimen/text13" />
+
+
+            <TextView
+                android:id="@+id/shop_credits"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_top"
+                android:text="60金币"
+                android:textColor="#e7271d"
+                android:textSize="@dimen/text13" />
+
+
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/submit_button"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/margin_top"
+            android:background="@drawable/lable_red_bg"
+            android:gravity="center"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
+            android:text="兑换"
+            android:textColor="#e7271d"
+            android:textSize="@dimen/text_small" />
+
+
+    </RelativeLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="130dp"
+android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+    <ImageView
+        android:id="@+id/shop_img"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_gravity="center_horizontal"
+         />
+    <TextView
+        android:id="@+id/shop_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:text="电影票兑换"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/text_big"
+        android:textSize="@dimen/text_big" />
+
+
+    <TextView
+        android:id="@+id/shop_credits"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:layout_gravity="center_horizontal"
+        android:text="800德信币"
+        android:textColor="#e7271d"
+        android:textSize="@dimen/text_center" />
+
+</LinearLayout>
