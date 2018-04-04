@@ -30,6 +30,7 @@ import com.myp.cinema.entity.ShopOrderBO;
 import com.myp.cinema.entity.SumptionBo;
 import com.myp.cinema.entity.UserBO;
 import com.myp.cinema.entity.WXPayBO;
+import com.myp.cinema.entity.preferentialnumberBo;
 import com.myp.cinema.entity.threelandingBo;
 import com.myp.cinema.ui.Prizesreading.HomeTopBean;
 import com.myp.cinema.ui.accountbalance.RechatBo;
@@ -270,6 +271,10 @@ public static Observable<threelandingBo> userLoginid(String wxUserId, String wbU
      */
     public static Observable<OrderNumBO> orderCancle(String orderNum) {
         return getService().orderCancel(orderNum).compose(RxResultHelper.<OrderNumBO>httpRusult());
+    }
+
+    public static Observable<preferentialnumberBo> getsets(String cinemaId, String dxId) {
+        return getService().getsets(cinemaId,dxId).compose(RxResultHelper.<preferentialnumberBo>httpRusult());
     }
 
     /**

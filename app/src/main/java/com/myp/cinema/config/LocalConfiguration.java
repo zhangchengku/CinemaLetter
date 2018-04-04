@@ -12,12 +12,12 @@ public class LocalConfiguration {
     public static final String SP_NAME = "CINEMA_SP";
     public static  String SESSION ="";
     // 测试微信应用的 appId
-    public static final String WEIXIN_APP_ID = "wxb18d1464762457a0";
-    public static final String APP_SECRET = "da24ec8811c4a4a2d71ae352a37af0f0";
+//    public static final String WEIXIN_APP_ID = "wxb18d1464762457a0";
+//    public static final String APP_SECRET = "da24ec8811c4a4a2d71ae352a37af0f0";
 
     //正式微信appId
-//    public static final String WEIXIN_APP_ID = "wx77fa35bb9adaed43";
-//    public static final String APP_SECRET = "31a74a452ca545e56945d9942f4fca48";
+    public static final String WEIXIN_APP_ID = "wx77fa35bb9adaed43";
+    public static final String APP_SECRET = "31a74a452ca545e56945d9942f4fca48";
 
     //QQ的appId
     public static final String QQ_APP_ID = "1106256112";

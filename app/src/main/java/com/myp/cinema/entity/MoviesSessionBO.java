@@ -36,8 +36,36 @@ public class MoviesSessionBO implements Serializable {
     private String movieSubtitle;//字幕
     private String cineMovieNum;//广电总局规定的影片全国唯一编码
     private String partnerPrice;  //优惠价格
-    private Integer leftScreenLimitNum;
-    private  Double preferPrice;
+    private Integer globalLeftNum;	//	剩余购买活动票价的次数
+    private Integer leftScreenLimitNum;//当前场次剩余购买活动票价的次数
+    private  Double preferPrice;    //会员价
+    private Double globalPreferPrice;// 会员卡优惠价
+    private Integer globalCanBuyNum;//会员优惠数量
+
+    public Integer getGlobalCanBuyNum() {
+        return globalCanBuyNum;
+    }
+
+    public void setGlobalCanBuyNum(Integer globalCanBuyNum) {
+        this.globalCanBuyNum = globalCanBuyNum;
+    }
+
+    public Double getGlobalPreferPrice() {
+        return globalPreferPrice;
+    }
+
+    public void setGlobalPreferPrice(Double globalPreferPrice) {
+        this.globalPreferPrice = globalPreferPrice;
+    }
+    public Integer getGlobalLeftNum() {
+        return globalLeftNum;
+    }
+
+    public void setGlobalLeftNum(Integer globalLeftNum) {
+        this.globalLeftNum = globalLeftNum;
+    }
+
+
 
     public Double getPreferPrice() {
         return preferPrice;

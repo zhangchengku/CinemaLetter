@@ -44,7 +44,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="22dp"
-            android:text="您当前还没有电影收藏哦"
+            android:text=""
             android:textColor="@color/text_small"
             android:textSize="16dp" />
 

@@ -18,6 +18,15 @@ public class OrderNumBO implements Serializable {
 
     private String orderNum;
     private String order;
+    private Integer isVip;
+
+    public Integer getIsVip() {
+        return isVip;
+    }
+
+    public void setIsVip(Integer isVip) {
+        this.isVip = isVip;
+    }
 
     public String getOrderNum() {
         return orderNum;

@@ -15,7 +15,9 @@ import com.myp.cinema.R;
 import com.myp.cinema.base.MyApplication;
 import com.myp.cinema.entity.MoviesByCidBO;
 import com.myp.cinema.entity.MoviesSessionBO;
+import com.myp.cinema.entity.OrderNumBO;
 import com.myp.cinema.entity.aCinemaSeatTableBO;
+import com.myp.cinema.entity.preferentialnumberBo;
 import com.myp.cinema.mvp.MVPBaseActivity;
 import com.myp.cinema.ui.orderconfrim.ConfrimOrderActivity;
 import com.myp.cinema.util.LogUtils;
@@ -56,13 +58,30 @@ public class SeatTableActivity extends MVPBaseActivity<SeatTableContract.View, S
     TextView seat3;
     @Bind(R.id.seat4)
     TextView seat4;
+    @Bind(R.id.seat11)
+    TextView seat11;
+    @Bind(R.id.seat22)
+    TextView seat22;
+    @Bind(R.id.seat33)
+    TextView seat33;
+    @Bind(R.id.seat44)
+    TextView seat44;
+    @Bind(R.id.lin_seat1)
+    LinearLayout lin_seat1;
+    @Bind(R.id.lin_seat2)
+    LinearLayout lin_seat2;
+    @Bind(R.id.lin_seat3)
+    LinearLayout lin_seat3;
+    @Bind(R.id.lin_seat4)
+    LinearLayout lin_seat4;
     @Bind(R.id.order_price)
     TextView orderPrice;
     @Bind(R.id.submit_button)
     Button submitButton;
     @Bind(R.id.buttom_layout)
     LinearLayout buttomLayout;
-
+    @Bind(R.id.x)
+    TextView x;
 
     private Map<String, aCinemaSeatTableBO> setMap;   //座位取值简单
     private Map<String, aCinemaSeatTableBO> selector;   //选中的座位
@@ -71,6 +90,10 @@ public class SeatTableActivity extends MVPBaseActivity<SeatTableContract.View, S
 
     MoviesSessionBO sessionBO;    //场次bean
     MoviesByCidBO movies;   //当前选座的电影
+    private double zongjia;
+    private OrderNumBO isVip;
+    private Integer preferentialnumber;
+    private List<aCinemaSeatTableBO> xss = new ArrayList<>();
 
     @Override
     protected int getLayout() {
@@ -82,10 +105,9 @@ public class SeatTableActivity extends MVPBaseActivity<SeatTableContract.View, S
         super.onCreate(savedInstanceState);
         sessionBO = (MoviesSessionBO) getIntent().getExtras().getSerializable("session");
         movies = (MoviesByCidBO) getIntent().getExtras().getSerializable("movies");
+        isVip = (OrderNumBO) getIntent().getExtras().getSerializable("isVip");
         goBack();
         setTitle(movies.getMovieName());
-
-
         moviesTime.setText(TimeUtils.string2Week(sessionBO.getStartTime()));
         LogUtils.I(sessionBO.getStartTime());
         LogUtils.I(TimeUtils.string2Week(sessionBO.getStartTime()));
@@ -98,6 +120,7 @@ public class SeatTableActivity extends MVPBaseActivity<SeatTableContract.View, S
         seatTable.setMaxSelected(4);//设置最多选中
         submitButton.setOnClickListener(this);
         updateSession.setOnClickListener(this);
+
     }
 
     /**
@@ -108,6 +131,19 @@ public class SeatTableActivity extends MVPBaseActivity<SeatTableContract.View, S
     @Override
     public void getSeatData(List<aCinemaSeatTableBO> s) {
         packSeatData(s);
+        xss = s;
+        mPresenter.getsets(MyApplication.cinemaBo.getCinemaId(),sessionBO.getDxId());
+
+    }
+
+    @Override
+    public void getpreferentialnumberBo(preferentialnumberBo s) {
+        preferentialnumber = s.getGlobalCanBuyNum();
+        if(s.getGlobalCanBuyNum()==null){
+            x.setText("0");
+        }else {
+            x.setText(preferentialnumber+"");
+        }
         seatTable.setSeatChecker(new SeatTable.SeatChecker() {
 
             @Override
@@ -190,8 +226,8 @@ public class SeatTableActivity extends MVPBaseActivity<SeatTableContract.View, S
             }
 
         });
-        int x = Integer.parseInt(s.get(s.size() - 1).getX());
-        int y = Integer.parseInt(s.get(s.size() - 1).getY());
+        int x = Integer.parseInt(xss.get(xss.size() - 1).getX());
+        int y = Integer.parseInt(xss.get(xss.size() - 1).getY());
         seatTable.setData(x, y);
     }
 
@@ -234,41 +270,15 @@ public class SeatTableActivity extends MVPBaseActivity<SeatTableContract.View, S
         }
         aCinemaSeatTableBO seatTableBO = setMap.get(row + "&&" + column);
         selector.put(row + "&&" + column, seatTableBO);
-        if(selector.size()>sessionBO.getLeftScreenLimitNum()){
-            double  youhuijia =sessionBO.getLeftScreenLimitNum() * Double.parseDouble(sessionBO.getPartnerPrice());
-            double noyouhui = (selector.size()-sessionBO.getLeftScreenLimitNum())* Double.parseDouble(sessionBO.getMarketPrice());
-            double zong = youhuijia+noyouhui;
-            BigDecimal bd=new BigDecimal(zong);
-            orderPrice.setText("¥" + bd.setScale(1,BigDecimal.ROUND_HALF_UP).doubleValue());
-            Log.d("价0格", "addSeatTables: "+bd.setScale(1,BigDecimal.ROUND_HALF_UP).doubleValue());
-        }else {
-            double zong = (selector.size())* Double.parseDouble(sessionBO.getPartnerPrice());
-            BigDecimal bd=new BigDecimal(zong);
-            orderPrice.setText("¥" + bd.setScale(1,BigDecimal.ROUND_HALF_UP).doubleValue());
-            Log.d("价0格", "addSeatTables: "+bd.setScale(1,BigDecimal.ROUND_HALF_UP).doubleValue());
-        }
+        jisuan(selector.size());
         seatShow();
     }
-
-
     /**
      * 取消座位，界面控制
      */
     private void removeSeatTables(int row, int column) {
         selector.remove(row + "&&" + column);
-        if(selector.size()>sessionBO.getLeftScreenLimitNum()){
-            double  youhuijia =sessionBO.getLeftScreenLimitNum() * Double.parseDouble(sessionBO.getPartnerPrice());
-            double noyouhui = (selector.size()-sessionBO.getLeftScreenLimitNum())* Double.parseDouble(sessionBO.getMarketPrice());
-            double zong = youhuijia+noyouhui;
-            BigDecimal bd=new BigDecimal(zong);
-            orderPrice.setText("¥" + bd.setScale(1,BigDecimal.ROUND_HALF_UP).doubleValue());
-            Log.d("价0格", "removeSeatTables: "+bd.setScale(1,BigDecimal.ROUND_HALF_UP).doubleValue());
-        }else {
-            double zong = (selector.size())* Double.parseDouble(sessionBO.getPartnerPrice());
-            BigDecimal bd=new BigDecimal(zong);
-            orderPrice.setText("¥" + bd.setScale(1,BigDecimal.ROUND_HALF_UP).doubleValue());
-            Log.d("价0格", "removeSeatTables: "+bd.setScale(1,BigDecimal.ROUND_HALF_UP).doubleValue());
-        }
+        jisuan(selector.size());
         if (selector.size() == 0) {
             animationSet = (AnimationSet) AnimationUtils.loadAnimation(this, R.anim.share_pop_out);
             buttomLayout.startAnimation(animationSet);
@@ -277,33 +287,235 @@ public class SeatTableActivity extends MVPBaseActivity<SeatTableContract.View, S
         seatShow();
     }
 
+    private void jisuan(int size) {
+                if(isVip.getIsVip()==1){
+                    if ( preferentialnumber==null||preferentialnumber<=0) {
+                        double zong = (size)* Double.parseDouble(String.valueOf(sessionBO.getPreferPrice()));
+                        BigDecimal bd=new BigDecimal(zong);
+                        zongjia =  bd.setScale(1,BigDecimal.ROUND_HALF_UP).doubleValue();
+                        orderPrice.setText("¥" + zongjia);
+                    } else {
+                        if(size>preferentialnumber){
+                            double  youhuijia =preferentialnumber * Double.parseDouble(String.valueOf(sessionBO.getGlobalPreferPrice()));
+                            double noyouhui = (size-preferentialnumber)* Double.parseDouble(String.valueOf(sessionBO.getPreferPrice()));
+                            double zong = youhuijia+noyouhui;
+                            BigDecimal bd=new BigDecimal(zong);
+                            zongjia =  bd.setScale(1,BigDecimal.ROUND_HALF_UP).doubleValue();
+                            orderPrice.setText("¥" + zongjia);
+                        }else {
+                            double zong = (size)* Double.parseDouble(String.valueOf(sessionBO.getGlobalPreferPrice()));
+                            BigDecimal bd=new BigDecimal(zong);
+                            zongjia =  bd.setScale(1,BigDecimal.ROUND_HALF_UP).doubleValue();
+                            orderPrice.setText("¥" + zongjia);
+                        }
+                    }
+                }else {
+                    if(sessionBO.getGlobalLeftNum()==null){
+                        double zong = (size)* Double.parseDouble(sessionBO.getMarketPrice());
+                        BigDecimal bd=new BigDecimal(zong);
+                        zongjia =  bd.setScale(1,BigDecimal.ROUND_HALF_UP).doubleValue();
+                        orderPrice.setText("¥" + zongjia);
+                    }else {
+                        if(sessionBO.getPartnerPrice()==null){
+                            double zong = (size)* Double.parseDouble(sessionBO.getMarketPrice());
+                            BigDecimal bd=new BigDecimal(zong);
+                            zongjia =  bd.setScale(1,BigDecimal.ROUND_HALF_UP).doubleValue();
+                            orderPrice.setText("¥" + zongjia);
+                        }else {
+                            if(sessionBO.getLeftScreenLimitNum()<sessionBO.getGlobalLeftNum()){
+                                if(size>sessionBO.getLeftScreenLimitNum()){
+                                    double  youhuijia =sessionBO.getLeftScreenLimitNum() * Double.parseDouble(sessionBO.getPartnerPrice());
+                                    double noyouhui = (size-sessionBO.getLeftScreenLimitNum())* Double.parseDouble(sessionBO.getMarketPrice());
+                                    double zong = youhuijia+noyouhui;
+                                    BigDecimal bd=new BigDecimal(zong);
+                                    zongjia =  bd.setScale(1,BigDecimal.ROUND_HALF_UP).doubleValue();
+                                    orderPrice.setText("¥" + zongjia);
+                                }else {
+                                    double zong = (size)* Double.parseDouble(sessionBO.getPartnerPrice());
+                                    BigDecimal bd=new BigDecimal(zong);
+                                    zongjia =  bd.setScale(1,BigDecimal.ROUND_HALF_UP).doubleValue();
+                                    orderPrice.setText("¥" + zongjia);
+                                }
+                            }else {
+                                if(size>sessionBO.getGlobalLeftNum()){
+                                    double  youhuijia =sessionBO.getGlobalLeftNum() * Double.parseDouble(sessionBO.getPartnerPrice());
+                                    double noyouhui = (size-sessionBO.getGlobalLeftNum())* Double.parseDouble(sessionBO.getMarketPrice());
+                                    double zong = youhuijia+noyouhui;
+                                    BigDecimal bd=new BigDecimal(zong);
+                                    zongjia =  bd.setScale(1,BigDecimal.ROUND_HALF_UP).doubleValue();
+                                    orderPrice.setText("¥" + zongjia);
+                                }else {
+                                    double zong = (size)* Double.parseDouble(sessionBO.getPartnerPrice());
+                                    BigDecimal bd=new BigDecimal(zong);
+                                    zongjia =  bd.setScale(1,BigDecimal.ROUND_HALF_UP).doubleValue();
+                                    orderPrice.setText("¥" + zongjia);
+                                }
+                            }
+                        }
+                }
+
+            }
+        }
+
     /**
      * 设置底部座位显示
      */
     private void seatShow() {
-        seat1.setVisibility(View.GONE);
-        seat2.setVisibility(View.GONE);
-        seat3.setVisibility(View.GONE);
-        seat4.setVisibility(View.GONE);
+        lin_seat1.setVisibility(View.GONE);
+        lin_seat2.setVisibility(View.GONE);
+        lin_seat3.setVisibility(View.GONE);
+        lin_seat4.setVisibility(View.GONE);
         int i = 0;
         for (aCinemaSeatTableBO seatTableBO : selector.values()) {
             i++;
             switch (i) {
                 case 1:
+                    if(isVip.getIsVip()==1){
+                        if (String.valueOf(preferentialnumber) == null && preferentialnumber<=0) {
+                            seat11.setText("卡：¥ " + String.valueOf(sessionBO.getPreferPrice()));
+                        }else {
+                            if(preferentialnumber>=1){
+                                seat11.setText("惠：¥ " + String.valueOf(sessionBO.getGlobalPreferPrice()));
+                            }else {
+                                seat11.setText("卡：¥ " + String.valueOf(sessionBO.getPreferPrice()));
+                            }
+                        }
+                    }else {
+                        if(sessionBO.getGlobalLeftNum()==null){
+                            seat11.setText("原：¥ " + String.valueOf(sessionBO.getMarketPrice()));
+                        }else {
+                            if(sessionBO.getPartnerPrice()==null){
+                                seat11.setText("原：¥ " + String.valueOf(sessionBO.getMarketPrice()));
+                            }else {
+                                if(sessionBO.getLeftScreenLimitNum()<sessionBO.getGlobalLeftNum()){
+                                    if(sessionBO.getLeftScreenLimitNum()>=1){
+                                        seat11.setText("惠：¥ " + String.valueOf(sessionBO.getPartnerPrice()));
+                                    }else {
+                                        seat11.setText("原：¥ " + String.valueOf(sessionBO.getMarketPrice()));
+                                    }
+                                }else {
+                                    if(sessionBO.getGlobalLeftNum()>=1){
+                                        seat11.setText("惠：¥ " + String.valueOf(sessionBO.getPartnerPrice()));
+                                    }else {
+                                        seat11.setText("原：¥ " + String.valueOf(sessionBO.getMarketPrice()));
+                                    }
+                                }
+                            }
+                        }
+                    }
                     seat1.setText(seatTableBO.getRowValue() + "排" + seatTableBO.getColumnValue() + "座");
-                    seat1.setVisibility(View.VISIBLE);
+                    lin_seat1.setVisibility(View.VISIBLE);
                     break;
                 case 2:
+                    if(isVip.getIsVip()==1){
+                        if (String.valueOf(preferentialnumber) == null && preferentialnumber<=0) {
+                            seat22.setText("卡：¥ " + String.valueOf(sessionBO.getPreferPrice()));
+                        }else {
+                            if(preferentialnumber>=2){
+                                seat22.setText("惠：¥ " + String.valueOf(sessionBO.getGlobalPreferPrice()));
+                            }else {
+                                seat22.setText("卡：¥ " + String.valueOf(sessionBO.getPreferPrice()));
+                            }
+                        }
+                    }else {
+                        if(sessionBO.getGlobalLeftNum()==null){
+                            seat22.setText("原：¥ " + String.valueOf(sessionBO.getMarketPrice()));
+                        }else {
+                            if(sessionBO.getPartnerPrice()==null){
+                                seat22.setText("原：¥ " + String.valueOf(sessionBO.getMarketPrice()));
+                            }else {
+                                if(sessionBO.getLeftScreenLimitNum()<sessionBO.getGlobalLeftNum()){
+                                    if(sessionBO.getLeftScreenLimitNum()>=2){
+                                        seat22.setText("惠：¥ " + String.valueOf(sessionBO.getPartnerPrice()));
+                                    }else {
+                                        seat22.setText("原：¥ " + String.valueOf(sessionBO.getMarketPrice()));
+                                    }
+                                }else {
+                                    if(sessionBO.getGlobalLeftNum()>=2){
+                                        seat22.setText("惠：¥ " + String.valueOf(sessionBO.getPartnerPrice()));
+                                    }else {
+                                        seat22.setText("原：¥ " + String.valueOf(sessionBO.getMarketPrice()));
+                                    }
+                                }
+                            }
+                        }
+                    }
                     seat2.setText(seatTableBO.getRowValue() + "排" + seatTableBO.getColumnValue() + "座");
-                    seat2.setVisibility(View.VISIBLE);
+                    lin_seat2.setVisibility(View.VISIBLE);
                     break;
                 case 3:
+                    if(isVip.getIsVip()==1){
+                        if (String.valueOf(preferentialnumber) == null && preferentialnumber<=0) {
+                            seat33.setText("卡：¥ " + String.valueOf(sessionBO.getPreferPrice()));
+                        }else {
+                            if(preferentialnumber>=3){
+                                seat33.setText("惠：¥ " + String.valueOf(sessionBO.getGlobalPreferPrice()));
+                            }else {
+                                seat33.setText("卡：¥ " + String.valueOf(sessionBO.getPreferPrice()));
+                            }
+                        }
+                    }else {
+                        if(sessionBO.getGlobalLeftNum()==null){
+                            seat33.setText("原：¥ " + String.valueOf(sessionBO.getMarketPrice()));
+                        }else {
+                            if(sessionBO.getPartnerPrice()==null){
+                                seat33.setText("原：¥ " + String.valueOf(sessionBO.getMarketPrice()));
+                            }else {
+                                if(sessionBO.getLeftScreenLimitNum()<sessionBO.getGlobalLeftNum()){
+                                    if(sessionBO.getLeftScreenLimitNum()>=3){
+                                        seat33.setText("惠：¥ " + String.valueOf(sessionBO.getPartnerPrice()));
+                                    }else {
+                                        seat33.setText("原：¥ " + String.valueOf(sessionBO.getMarketPrice()));
+                                    }
+                                }else {
+                                    if(sessionBO.getGlobalLeftNum()>=3){
+                                        seat33.setText("惠：¥ " + String.valueOf(sessionBO.getPartnerPrice()));
+                                    }else {
+                                        seat33.setText("原：¥ " + String.valueOf(sessionBO.getMarketPrice()));
+                                    }
+                                }
+                            }
+                        }
+                    }
                     seat3.setText(seatTableBO.getRowValue() + "排" + seatTableBO.getColumnValue() + "座");
-                    seat3.setVisibility(View.VISIBLE);
+                    lin_seat3.setVisibility(View.VISIBLE);
                     break;
                 case 4:
+                    if(isVip.getIsVip()==1){
+                        if (String.valueOf(preferentialnumber) == null && preferentialnumber<=0) {
+                            seat44.setText("卡：¥ " + String.valueOf(sessionBO.getPreferPrice()));
+                        }else {
+                            if(preferentialnumber>=4){
+                                seat44.setText("惠：¥ " + String.valueOf(sessionBO.getGlobalPreferPrice()));
+                            }else {
+                                seat44.setText("卡：¥ " + String.valueOf(sessionBO.getPreferPrice()));
+                            }
+                        }
+                    }else {
+                        if(sessionBO.getGlobalLeftNum()==null){
+                            seat44.setText("原：¥ " + String.valueOf(sessionBO.getMarketPrice()));
+                        }else {
+                            if(sessionBO.getPartnerPrice()==null){
+                                seat44.setText("原：¥ " + String.valueOf(sessionBO.getMarketPrice()));
+                            }else {
+                                if(sessionBO.getLeftScreenLimitNum()<sessionBO.getGlobalLeftNum()){
+                                    if(sessionBO.getLeftScreenLimitNum()>=4){
+                                        seat44.setText("惠：¥ " + String.valueOf(sessionBO.getPartnerPrice()));
+                                    }else {
+                                        seat44.setText("原：¥ " + String.valueOf(sessionBO.getMarketPrice()));
+                                    }
+                                }else {
+                                    if(sessionBO.getGlobalLeftNum()>=4){
+                                        seat44.setText("惠：¥ " + String.valueOf(sessionBO.getPartnerPrice()));
+                                    }else {
+                                        seat44.setText("原：¥ " + String.valueOf(sessionBO.getMarketPrice()));
+                                    }
+                                }
+                            }
+                        }
+                    }
                     seat4.setText(seatTableBO.getRowValue() + "排" + seatTableBO.getColumnValue() + "座");
-                    seat4.setVisibility(View.VISIBLE);
+                    lin_seat4.setVisibility(View.VISIBLE);
                     break;
             }
         }
@@ -319,6 +531,7 @@ public class SeatTableActivity extends MVPBaseActivity<SeatTableContract.View, S
                 bundle.putInt("num", selector.size());                  //电影张数
                 bundle.putString("seats", getSeats());
                 bundle.putString("seatId", getSeatsId());
+                bundle.putInt("preferentialnumber", preferentialnumber);
                 gotoActivity(ConfrimOrderActivity.class, bundle, false);
                 break;
             case R.id.update_session:   //更换场次

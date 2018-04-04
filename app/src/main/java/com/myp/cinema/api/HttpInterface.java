@@ -31,6 +31,7 @@ import com.myp.cinema.entity.SumptionBo;
 import com.myp.cinema.entity.UserBO;
 import com.myp.cinema.entity.WXPayBO;
 
+import com.myp.cinema.entity.preferentialnumberBo;
 import com.myp.cinema.entity.threelandingBo;
 import com.myp.cinema.ui.Prizesreading.HomeTopBean;
 import com.myp.cinema.ui.accountbalance.RechatBo;
@@ -196,7 +197,9 @@ public interface HttpInterface {
     Observable<BaseResult<List<LunBoBO>>> lunboList(@Field("source") String source,
                                                     @Field("cinemaId") String cinemaId);
 
-
+    /**
+     * 查询首页轮播图
+     */
 
     @FormUrlEncoded
     @POST("/api/new/banners")
@@ -285,7 +288,7 @@ public interface HttpInterface {
     /**
      * 检测是否有未完成的订单
      */
-    @POST("/api/order/checkorder")
+    @POST("/api/new/order/checkorder")
     Observable<BaseResult<OrderNumBO>> orderCheck();
 
     /**
@@ -294,7 +297,12 @@ public interface HttpInterface {
     @FormUrlEncoded
     @POST("/api/order/cancelorder")
     Observable<BaseResult<OrderNumBO>> orderCancel(@Field("orderNum") String orderNum);
-
+    /**
+     * 会员卡优惠数量
+     */
+    @FormUrlEncoded
+    @POST("/api/global/can/buy/num")
+    Observable<BaseResult<preferentialnumberBo>> getsets(@Field("cinemaId") String cinemaId, @Field("playId") String playId);
 
     /**
      * 获取会员卡支付价格

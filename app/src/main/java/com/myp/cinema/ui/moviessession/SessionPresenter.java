@@ -1,5 +1,7 @@
 package com.myp.cinema.ui.moviessession;
 
+import android.util.Log;
+
 import com.myp.cinema.api.HttpInterfaceIml;
 import com.myp.cinema.api.HttpServiceIml;
 import com.myp.cinema.entity.FavourBO;
@@ -60,6 +62,7 @@ public class SessionPresenter extends BasePresenterImpl<SessionContract.View>
 
             @Override
             public void onError(Throwable e) {
+                Log.d("sdhfjkha;s", "onError: "+e.getMessage());
                 if (mView == null)
                     return;
                 mView.onRequestError(e.getMessage());
@@ -67,6 +70,7 @@ public class SessionPresenter extends BasePresenterImpl<SessionContract.View>
 
             @Override
             public void onNext(OrderNumBO orderNumBO) {
+                Log.d("sdhfjkha;s", "onNext: "+"成功");
                 if (mView == null)
                     return;
                 mView.getCheckOrder(orderNumBO);

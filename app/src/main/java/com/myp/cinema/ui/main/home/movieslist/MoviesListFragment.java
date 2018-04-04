@@ -274,7 +274,6 @@ public class MoviesListFragment extends MVPBaseFragment<MoviesListContract.View,
 
     @Override
     public void getMoviesHot(List<MoviesByCidBO> moviesHotBO) {
-        Log.d("下拉测试", "电影数据");
         list.setVisibility(View.VISIBLE);
         this.moviesList = moviesHotBO;
         MyApplication.movies = moviesHotBO;
@@ -283,8 +282,6 @@ public class MoviesListFragment extends MVPBaseFragment<MoviesListContract.View,
 
     @Override
     public void getLunBo(LunBoAndBO lunBoBOs) {
-        Log.d("下拉测试", "轮播数据"+lunBoBOs.getBanners());
-        Log.d("下拉测试", "轮播数据"+lunBoBOs.getAds());
         this.lunBoBOs = lunBoBOs.getBanners();
         setBannerAdapter();
         this.adsBOs = lunBoBOs.getAds();

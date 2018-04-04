@@ -80,7 +80,7 @@ public class LunBoAndBO implements Serializable {
             }
 
             private String imageUrl;
-            private int playType;
+            private String playType;
             private String redirectUrl;
 
 
@@ -93,11 +93,11 @@ public class LunBoAndBO implements Serializable {
                 this.imageUrl = imageUrl;
             }
 
-            public int getPlayType() {
+            public String getPlayType() {
                 return playType;
             }
 
-            public void setPlayType(int playType) {
+            public void setPlayType(String playType) {
                 this.playType = playType;
             }
 

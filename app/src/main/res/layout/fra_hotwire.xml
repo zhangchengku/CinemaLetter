@@ -20,7 +20,7 @@
             android:layout_height="match_parent" />
         <TextView
             android:background="#ffffff"
-            android:text="影城咨询"
+            android:text="影城资讯"
             android:gravity="center"
             android:textSize="@dimen/text_big"
             android:id="@+id/article"

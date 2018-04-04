@@ -10,6 +10,7 @@
 
 
     <EditText
+        android:maxLength="256"
         android:id="@+id/edit_feed"
         android:layout_width="match_parent"
         android:layout_height="170dp"

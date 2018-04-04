@@ -100,6 +100,7 @@ public class SessionActivity extends MVPBaseActivity<SessionContract.View, Sessi
 
     int distion = Integer.MAX_VALUE;   //  记录首页点击的电影下标
     List<MoviesSessionBO> sessionBOs;    //当前选中日期的场次列表
+    private int isone = 1;
 
 
     @Override
@@ -113,6 +114,7 @@ public class SessionActivity extends MVPBaseActivity<SessionContract.View, Sessi
         goBack();
         cinemaBo = MyApplication.cinemaBo;
         setTitle(cinemaBo.getCinemaName());
+        showProgress("加载中...");
         initvion();
 
         distailMovie = (MoviesByCidBO) getIntent().getExtras().getSerializable("movies");
@@ -161,10 +163,12 @@ public class SessionActivity extends MVPBaseActivity<SessionContract.View, Sessi
      */
     @Override
     public void getCheckOrder(final OrderNumBO orderNumBO) {
+        isone = 1;
         if ("0".equals(orderNumBO.getOrder())) {  //没有未完成订单
             Bundle bundle = new Bundle();
             bundle.putSerializable("movies", movies);
             bundle.putSerializable("session", sessionBOs.get(position));
+            bundle.putSerializable("isVip", orderNumBO);
             gotoActivity(SeatTableActivity.class, bundle, false);
         } else {
             LayoutInflater factory = LayoutInflater.from(this);//提示框
@@ -199,10 +203,15 @@ public class SessionActivity extends MVPBaseActivity<SessionContract.View, Sessi
      */
     @Override
     public void getOrderCancle(OrderNumBO orderNumBO) {
+        if (orderNumBO.getIsVip() == null) {
+            Log.d("sdfasdfasdfsadf", "kong: ");
+        }
+        isone = 1;
         if (!StringUtils.isEmpty(orderNumBO.getOrderNum())) {
             Bundle bundle = new Bundle();
             bundle.putSerializable("movies", movies);
             bundle.putSerializable("session", sessionBOs.get(position));
+            bundle.putSerializable("isVip", orderNumBO);
             gotoActivity(SeatTableActivity.class, bundle, false);
         }
     }
@@ -233,27 +242,12 @@ public class SessionActivity extends MVPBaseActivity<SessionContract.View, Sessi
 
     @Override
     public void onRequestError(String msg) {
+        isone = 1;
         stopProgress();
-        if ("未登录".equals(msg)) {
-            Intent intent = new Intent(this, LoginActivity.class);
-            startActivityForResult(intent, 1);
-        } else {
-            LogUtils.showToast(msg);
-        }
-    }
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (data == null) {
-            return;
-        }
-        switch (resultCode) {
-            case 1:
-                mPresenter.loadMoviesSession(cinemaBo.getCinemaId(), movies.getId());
-                break;
+        LogUtils.showToast(msg);
 
-        }
     }
+
     @Override
     public void onRequestEnd() {
         stopProgress();
@@ -378,6 +372,7 @@ public class SessionActivity extends MVPBaseActivity<SessionContract.View, Sessi
 
     CommonAdapter<MoviesSessionBO> adapter;
 
+
     /**
      * 设置场次适配器
      * <p>
@@ -400,26 +395,31 @@ public class SessionActivity extends MVPBaseActivity<SessionContract.View, Sessi
                 helper.setText(R.id.stop_time, item.getEndTime().split(" ")[1].substring(0, 5) + "散场");
                 helper.setText(R.id.movie_langvige, item.getMovieLanguage());
                 helper.setText(R.id.movie_ting, item.getHallName());
-                if(item.getPartnerPrice()==null){
+                if (item.getPartnerPrice() == null) {
                     helper.setText(R.id.movie_price, item.getMarketPrice());
-                }else {
+                } else {
                     if (MyApplication.isLogin == ConditionEnum.NOLOGIN) {  //未登录进入登陆
                         helper.setText(R.id.movie_price, item.getPartnerPrice());
                     } else if (MyApplication.isLogin == ConditionEnum.LOGIN) {   //已登录正式跳转
-                        if(item.getLeftScreenLimitNum()==null){
+                        if (item.getLeftScreenLimitNum() == null) {
                             helper.setText(R.id.movie_price, item.getMarketPrice());
-                        }else {
-                            if(item.getLeftScreenLimitNum()>0){
-                                helper.setText(R.id.movie_price, item.getPartnerPrice());
-                            }else {
+                        } else {
+                            if (item.getGlobalLeftNum() > 0) {
+                                if (item.getLeftScreenLimitNum() > 0) {
+                                    helper.setText(R.id.movie_price, item.getPartnerPrice());
+                                } else {
+                                    helper.setText(R.id.movie_price, item.getMarketPrice());
+                                }
+                            } else {
                                 helper.setText(R.id.movie_price, item.getMarketPrice());
                             }
+
                         }
                     }
                 }
-                if(item.getPreferPrice()==null){
-                    helper.setText(R.id.cinema_price, "" );
-                }else {
+                if (item.getGlobalCanBuyNum() != null && item.getGlobalCanBuyNum()>0) {
+                    helper.setText(R.id.cinema_price, "会员价：" + item.getGlobalPreferPrice());
+                } else {
                     helper.setText(R.id.cinema_price, "会员价：" + item.getPreferPrice());
                 }
                 helper.getView(R.id.moives_type).setVisibility(View.VISIBLE);
@@ -444,8 +444,33 @@ public class SessionActivity extends MVPBaseActivity<SessionContract.View, Sessi
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        this.position = position;
-        mPresenter.checkOrder();
+        Log.d("bubugbugbuggbugbugg", "onItemClick: " + isone);
+        if (MyApplication.isLogin == ConditionEnum.NOLOGIN) {  //未登录进入登陆
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivityForResult(intent, 1);
+        } else if (MyApplication.isLogin == ConditionEnum.LOGIN) {
+            if (isone == 1) {
+                this.position = position;
+                mPresenter.checkOrder();
+                isone = 2;
+            }
+
+        }
+
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (data == null) {
+            return;
+        }
+        switch (resultCode) {
+            case 1:
+                mPresenter.loadMoviesSession(cinemaBo.getCinemaId(), movies.getId());
+                break;
+
+        }
     }
 
 }

@@ -69,8 +69,10 @@ public class ConfrimOrderActivity extends MVPBaseActivity<ConfrimOrderContract.V
     private int ticketNum;
     private String seatId;
     private String seats;
-    private String price;
     private int size;
+    private double zongjia;
+    private int preferentialnumber;
+
 
     @Override
     protected int getLayout() {
@@ -99,18 +101,51 @@ public class ConfrimOrderActivity extends MVPBaseActivity<ConfrimOrderContract.V
         ticketNum = bundle.getInt("num", 0);
         seatId = bundle.getString("seatId", "");
         seats = bundle.getString("seats", "");
-        if(ticketNum>sessionBO.getLeftScreenLimitNum()){
-            double  youhuijia =sessionBO.getLeftScreenLimitNum() * Double.parseDouble(sessionBO.getPartnerPrice());
-            double noyouhui = (ticketNum-sessionBO.getLeftScreenLimitNum())* Double.parseDouble(sessionBO.getMarketPrice());
-            double zong = youhuijia+noyouhui;
+        preferentialnumber= bundle.getInt("preferentialnumber", 0);
+        if(sessionBO.getGlobalLeftNum()==null){
+            double zong = (ticketNum)* Double.parseDouble(sessionBO.getMarketPrice());
             BigDecimal bd=new BigDecimal(zong);
-            price = bd.setScale(1, BigDecimal.ROUND_HALF_UP).doubleValue() + "";
-            Log.d("价0格", "订单确认: "+bd.setScale(1,BigDecimal.ROUND_HALF_UP).doubleValue());
+             zongjia =  bd.setScale(1,BigDecimal.ROUND_HALF_UP).doubleValue();
+            orderPrice.setText("¥ " + zongjia);
         }else {
-            double zong = (ticketNum)* Double.parseDouble(sessionBO.getPartnerPrice());
-            BigDecimal bd=new BigDecimal(zong);
-            price = bd.setScale(1, BigDecimal.ROUND_HALF_UP).doubleValue() + "";
-            Log.d("价0格", "订单确认: "+bd.setScale(1,BigDecimal.ROUND_HALF_UP).doubleValue());
+            if(sessionBO.getPartnerPrice()==null){
+                double zong = (ticketNum)* Double.parseDouble(sessionBO.getMarketPrice());
+                BigDecimal bd=new BigDecimal(zong);
+                zongjia =  bd.setScale(1,BigDecimal.ROUND_HALF_UP).doubleValue();
+                orderPrice.setText("¥ " + zongjia);
+            }else {
+                    if(sessionBO.getLeftScreenLimitNum()<sessionBO.getGlobalLeftNum()){
+                        if(ticketNum>sessionBO.getLeftScreenLimitNum()){
+                            double  youhuijia =sessionBO.getLeftScreenLimitNum() * Double.parseDouble(sessionBO.getPartnerPrice());
+                            double noyouhui = (ticketNum-sessionBO.getLeftScreenLimitNum())* Double.parseDouble(sessionBO.getMarketPrice());
+                            double zong = youhuijia+noyouhui;
+                            BigDecimal bd=new BigDecimal(zong);
+                            zongjia =  bd.setScale(1,BigDecimal.ROUND_HALF_UP).doubleValue();
+                            orderPrice.setText("¥" + zongjia);
+                        }else {
+                            double zong = (ticketNum)* Double.parseDouble(sessionBO.getPartnerPrice());
+                            BigDecimal bd=new BigDecimal(zong);
+                            zongjia =  bd.setScale(1,BigDecimal.ROUND_HALF_UP).doubleValue();
+                            orderPrice.setText("¥" + zongjia);
+                        }
+                    }else {
+                        if(ticketNum>sessionBO.getGlobalLeftNum()){
+                            double  youhuijia =sessionBO.getGlobalLeftNum() * Double.parseDouble(sessionBO.getPartnerPrice());
+                            double noyouhui = (ticketNum-sessionBO.getGlobalLeftNum())* Double.parseDouble(sessionBO.getMarketPrice());
+                            double zong = youhuijia+noyouhui;
+                            BigDecimal bd=new BigDecimal(zong);
+                            zongjia =  bd.setScale(1,BigDecimal.ROUND_HALF_UP).doubleValue();
+                            orderPrice.setText("¥" + zongjia);
+                        }else {
+                            double zong = (ticketNum)* Double.parseDouble(sessionBO.getPartnerPrice());
+                            BigDecimal bd=new BigDecimal(zong);
+                            zongjia =  bd.setScale(1,BigDecimal.ROUND_HALF_UP).doubleValue();
+                            orderPrice.setText("¥" + zongjia);
+                        }
+                    }
+
+
+            }
         }
     }
 
@@ -137,26 +172,40 @@ public class ConfrimOrderActivity extends MVPBaseActivity<ConfrimOrderContract.V
         seatText.setText(buffer.toString());
         moviesnum.setText(String.valueOf(ticketNum));
         contact.setText("客服电话：" + MyApplication.cinemaBo.getContact());
-        orderPrice.setText("¥ " + price);
         otherPrice.setText("(含服务费¥" + MyApplication.cinemaBo.getTotalFee() + "/张)");
-        if(sessionBO.getPreferPrice()==null){
-            membership.setVisibility(View.GONE);
-        }else {
+        if (String.valueOf(preferentialnumber) == null && preferentialnumber<=0) {
             double  membershipprice =ticketNum * Double.parseDouble(String.valueOf(sessionBO.getPreferPrice()));
             BigDecimal bd=new BigDecimal(membershipprice);
             String membershipprices = bd.setScale(1, BigDecimal.ROUND_HALF_UP).doubleValue() + "";
             membership.setText("¥ " + membershipprices);
+        }else {
+            if(ticketNum>preferentialnumber){
+                double  youhuijia =preferentialnumber * Double.parseDouble(String.valueOf(sessionBO.getGlobalPreferPrice()));
+                double noyouhui = (ticketNum-preferentialnumber)* Double.parseDouble(String.valueOf(sessionBO.getPreferPrice()));
+                double zong = youhuijia+noyouhui;
+                BigDecimal bd=new BigDecimal(zong);
+                double membershipprices =  bd.setScale(1,BigDecimal.ROUND_HALF_UP).doubleValue();
+                membership.setText("¥ " + membershipprices);
+            }else {
+                double  membershipprice =ticketNum * Double.parseDouble(String.valueOf(sessionBO.getGlobalPreferPrice()));
+                BigDecimal bd=new BigDecimal(membershipprice);
+                String membershipprices = bd.setScale(1, BigDecimal.ROUND_HALF_UP).doubleValue() + "";
+                membership.setText("¥ " + membershipprices);
+            }
         }
 
-    }
+            }
+
+
+
+
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.submit_button:
                 LogUtils.showToast("提交订单");
                     showNoProgress("提交订单中...");
-                Log.d("价0格", "订单提交确认: "+price);
-                    mPresenter.loadSubmitOrder( null, seats, ticketNum + "", price,
+                    mPresenter.loadSubmitOrder( null, seats, ticketNum + "", zongjia+"",
                             MyApplication.cinemaBo.getCinemaNumber(), sessionBO.getHallId(),
                             sessionBO.getDxId(), sessionBO.getCineMovieNum(), seatId);
                 break;
@@ -204,7 +253,7 @@ public class ConfrimOrderActivity extends MVPBaseActivity<ConfrimOrderContract.V
         bundle.putSerializable("order", orderBO);
         bundle.putInt("confrim", 1);
         bundle.putInt("size", size);
-        bundle.putString("price", price);
+        bundle.putString("price", String.valueOf(zongjia));
         gotoActivity(PayActivity.class, bundle, true);
     }
 }
