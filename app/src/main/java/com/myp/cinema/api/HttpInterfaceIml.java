@@ -1,7 +1,5 @@
 package com.myp.cinema.api;
 
-import android.util.Log;
-
 import com.myp.cinema.entity.AppVersionBO;
 import com.myp.cinema.entity.Bean;
 import com.myp.cinema.entity.CardBO;
@@ -22,6 +20,7 @@ import com.myp.cinema.entity.OrderNumBO;
 import com.myp.cinema.entity.PayBO;
 import com.myp.cinema.entity.PayCardBO;
 import com.myp.cinema.entity.RechBo;
+import com.myp.cinema.entity.RefundBO;
 import com.myp.cinema.entity.ResuBo;
 import com.myp.cinema.entity.SessionBO;
 import com.myp.cinema.entity.ShareBO;
@@ -33,8 +32,9 @@ import com.myp.cinema.entity.WXPayBO;
 import com.myp.cinema.entity.preferentialnumberBo;
 import com.myp.cinema.entity.threelandingBo;
 import com.myp.cinema.ui.Prizesreading.HomeTopBean;
-import com.myp.cinema.ui.accountbalance.RechatBo;
+import com.myp.cinema.entity.RechatBo;
 import com.myp.cinema.util.rx.RxResultHelper;
+import com.myp.cinema.util.rx.RxHelper;
 
 import java.util.List;
 
@@ -75,7 +75,7 @@ public class HttpInterfaceIml {
     *
     * */
 public static Observable<threelandingBo> userLoginid(String wxUserId, String wbUserId, String qqUserId) {
-    return getService().userLoginid(wxUserId,wbUserId,qqUserId).compose(schedulersTransformer.<threelandingBo>httpRusult());
+    return getService().userLoginid(wxUserId,wbUserId,qqUserId).compose(RxHelper.<threelandingBo>httpRusult());
 }
     /**
      * 退出登录
@@ -111,13 +111,13 @@ public static Observable<threelandingBo> userLoginid(String wxUserId, String wbU
      * 第三方登录验证用户
      */
     public static Observable<threelandingBo> phonebinding(String phone,String wxUserId,String wbUserId,String qqUserId, String versition) {
-        return getService().phonebinding(phone,wxUserId,wbUserId ,qqUserId,versition).compose(schedulersTransformer.<threelandingBo>httpRusult());
+        return getService().phonebinding(phone,wxUserId,wbUserId ,qqUserId,versition).compose(RxHelper.<threelandingBo>httpRusult());
     }
     /**
      * 第三方注册
      */
     public static Observable<threelandingBo> thirdregist(String mobile,String password,String header,String nickName,String gender,String wxUserId,String wbUserId,String qqUserId) {
-        return getService().thirdregist(mobile,password,header,nickName,gender,wxUserId,wbUserId,qqUserId).compose(schedulersTransformer.<threelandingBo>httpRusult());
+        return getService().thirdregist(mobile,password,header,nickName,gender,wxUserId,wbUserId,qqUserId).compose(RxHelper.<threelandingBo>httpRusult());
     }
     /**
      * 修改密码
@@ -240,14 +240,14 @@ public static Observable<threelandingBo> userLoginid(String wxUserId, String wbU
         return getService(). refundinfo(id).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
     }
     public static Observable<RefundBO>  refund(String id,String cinemaId) {
-        return getService(). refund(id,cinemaId).compose(schedulersTransformer.<RefundBO>httpRusult());
+        return getService(). refund(id,cinemaId).compose(RxHelper.<RefundBO>httpRusult());
     }
 
     /**refund
      * 查询订单详情
      */
     public static Observable<Bean> orderMessage(String id, String cinemaId) {
-        return getService().orderMessage(id,cinemaId).compose(schedulersTransformer.<Bean>httpRusult());
+        return getService().orderMessage(id,cinemaId).compose(RxHelper.<Bean>httpRusult());
     }
 
 
@@ -379,7 +379,7 @@ public static Observable<threelandingBo> userLoginid(String wxUserId, String wbU
      * 获取有奖任务列表
      */
     public static Observable<HomeTopBean>getList(String pageNo) {
-        return getService().getList( pageNo,pageNum).compose(schedulersTransformer.<HomeTopBean>httpRusult());
+        return getService().getList( pageNo,pageNum).compose(RxHelper.<HomeTopBean>httpRusult());
     }
     /**
      * 提交反馈

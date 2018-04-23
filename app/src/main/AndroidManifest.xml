@@ -221,7 +221,7 @@
 
         <!--绑定会员卡页面-->
         <activity
-            android:name="com.myp.cinema.ui.membercard1.AddCardActiivty"
+            android:name="com.myp.cinema.ui.membercard.AddCardActiivty"
             android:launchMode="standard"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.Mike" />
@@ -327,7 +327,7 @@
 
         <!--意见反馈页面-->
         <activity
-            android:name=".ui.FeedBackActivity"
+            android:name=".ui.feedbacklist.FeedBackActivity"
             android:launchMode="standard"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.Mike" />
@@ -493,29 +493,29 @@
         <activity
             android:name="com.myp.cinema.ui.personcollect.PersonCollectActivity2"></activity>
         <activity
-            android:name="com.myp.cinema.ui.tuipiaoxiangqing.tuipiaoxiangqing"></activity>
+            android:name="com.myp.cinema.ui.detailsofrefund.detailsofrefund"></activity>
         <activity
             android:name="com.myp.cinema.ui.accountbalance.accountbalance"></activity>
         <activity
             android:name="com.myp.cinema.ui.Prizesreading.Prizesreading"></activity>
         <activity
-            android:name="com.myp.cinema.ui.accountbalance.rechatge"></activity>
+            android:name=".ui.rechatge.rechatge"></activity>
         <activity
-            android:name="com.myp.cinema.ui.accountbalance.PaysuccessActivity"></activity>
+            android:name="com.myp.cinema.ui.paysuccess.PaysuccessActivity"></activity>
         <activity
-            android:name="com.myp.cinema.ui.balance.balance"></activity>
+            android:name="com.myp.cinema.ui.detailed.detailed"></activity>
         <activity
-            android:name="com.myp.cinema.ui.accountbalance.bendih5"></activity>
+            android:name="com.myp.cinema.ui.agreement.agreement"></activity>
         <activity
-            android:name="com.myp.cinema.ui.tuipiaoshenqing.tuipiaoshenqing"></activity>
+            android:name="com.myp.cinema.ui.applicationforrefund.applicationforrefund"></activity>
         <activity
             android:name="com.myp.cinema.ui.allcritic.allcritic"></activity>
         <activity
             android:name="com.myp.cinema.ui.feedbacklist.FeedBackListActivity"></activity>
         <activity
-            android:name="com.myp.cinema.ui.membercard1.MemberCard1Activity"></activity>
+            android:name="com.myp.cinema.ui.membercard.MemberCardActivity"></activity>
         <activity
-            android:name="com.myp.cinema.ui.membercard1.CardMessageActivity"></activity>
+            android:name="com.myp.cinema.ui.membercard.CardMessageActivity"></activity>
     </application>
 
 </manifest>

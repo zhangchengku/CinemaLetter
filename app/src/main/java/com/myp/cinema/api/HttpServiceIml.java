@@ -61,12 +61,7 @@ public class HttpServiceIml {
             params += key + "=" + keyAndValues.get(key) + "&";
         }
         String _sig = HttpServiceIml.get_Sig(params.substring(0, params.length() - 1));
-        Log.d("测试的鼎新demo", "format: "+"json");
-        Log.d("测试的鼎新demo", "cid: "+cid);
-        Log.d("测试的鼎新demo", "pid: "+HttpService.PID);
-        Log.d("测试的鼎新demo", "playId: "+playId);
-        Log.d("测试的鼎新demo", "updateTime: "+updateTime);
-        Log.d("测试的鼎新demo", "_sig: "+_sig);
+
         return getService().getCinemaSeatStatus("json", cid, HttpService.PID, playId, updateTime, _sig)
                 .compose(RxResultHelper.<List<aCinemaSeatTableBO>>httpDingRusult());
     }

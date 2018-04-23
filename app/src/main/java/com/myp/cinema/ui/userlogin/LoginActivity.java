@@ -153,8 +153,6 @@ public class LoginActivity extends MVPBaseActivity<LoginContract.View, LoginPres
 
     @Override
     public void getUserid(threelandingBo s,int styles) {
-        Log.d("登陆", "登陆界面返回"+s.getStatus());
-        Log.d("登陆", "登陆界面返回"+s.getMessage());
         if(s.getStatus()==1){
             Intent intent = new Intent();
             intent.putExtra("user", s.getData());

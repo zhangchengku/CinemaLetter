@@ -23,7 +23,6 @@ public class MoviesListPresenter extends BasePresenterImpl<MoviesListContract.Vi
 
     @Override
     public void moviesHot(String cinemaId) {
-        Log.d("mainactivityonError", "onError: 进来了");
         HttpInterfaceIml.moviesHot(cinemaId).subscribe(new Subscriber<List<MoviesByCidBO>>() {
             @Override
             public void onCompleted() {
@@ -34,7 +33,6 @@ public class MoviesListPresenter extends BasePresenterImpl<MoviesListContract.Vi
 
             @Override
             public void onError(Throwable e) {
-                Log.d("mainactivityonError", "onError: "+e.getMessage());
                 if (mView == null)
                     return;
                 mView.onRequestError(e.getMessage());
@@ -42,7 +40,6 @@ public class MoviesListPresenter extends BasePresenterImpl<MoviesListContract.Vi
 
             @Override
             public void onNext(List<MoviesByCidBO> s) {
-                Log.d("mainactivityonError", "onError: "+s);
                 if (mView == null)
                     return;
 

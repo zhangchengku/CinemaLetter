@@ -36,8 +36,6 @@ public class HotwirePresenter extends BasePresenterImpl<HotwireContract.View>
 
             @Override
             public void onNext(List<HotWireBO> s) {
-                Log.d("rechatgePresenter", "rechatgePresenter "+s);
-                Log.d("rechatgePresenter", "rechatgePresenter "+flpage);
                 if (mView == null)
                     return;
                 mView.getHotWire(s,flpage,articleType);

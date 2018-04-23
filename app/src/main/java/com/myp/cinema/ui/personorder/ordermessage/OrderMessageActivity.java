@@ -7,7 +7,6 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageView;
@@ -19,7 +18,7 @@ import com.myp.cinema.entity.Bean;
 import com.myp.cinema.entity.OrderBO;
 import com.myp.cinema.entity.ShareBO;
 import com.myp.cinema.mvp.MVPBaseActivity;
-import com.myp.cinema.ui.tuipiaoshenqing.tuipiaoshenqing;
+import com.myp.cinema.ui.applicationforrefund.applicationforrefund;
 import com.myp.cinema.util.CimemaUtils;
 import com.myp.cinema.util.LogUtils;
 import com.myp.cinema.util.StringUtils;
@@ -178,7 +177,7 @@ public class OrderMessageActivity extends MVPBaseActivity<OrderMessageContract.V
                                 bundle.putSerializable("order", orderBO);
                                 bundle.putString("cinemaId",cinemaId );
                                 bundle.putString("id",id );
-                                gotoActivity(tuipiaoshenqing.class, bundle, false);
+                                gotoActivity(applicationforrefund.class, bundle, false);
                             }
                         });
                     }else {

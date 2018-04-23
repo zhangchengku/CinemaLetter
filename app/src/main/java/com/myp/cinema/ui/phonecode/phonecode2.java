@@ -177,8 +177,7 @@ public class phonecode2 extends BaseActivity implements View.OnClickListener {
 
             @Override
             public void onNext(threelandingBo s) {
-                Log.d("登陆", "绑定手机号界面返回"+s.getStatus());
-                Log.d("登陆", "绑定手机号界面返回"+s.getMessage());
+
                 if (timer != null) {
                     timer.cancel();
                 }

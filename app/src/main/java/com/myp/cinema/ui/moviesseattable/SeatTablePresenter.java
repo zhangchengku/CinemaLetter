@@ -49,11 +49,7 @@ public class SeatTablePresenter extends BasePresenterImpl<SeatTableContract.View
     }
     @Override
     public void loadSeatTables(String cid, String playId, String updateTime) {
-        Log.d("测试的鼎新demo", "format: "+"json");
-        Log.d("测试的鼎新demo", "cid: "+cid);
-        Log.d("测试的鼎新demo", "pid: "+ "90073");
-        Log.d("测试的鼎新demo", "playId: "+playId);
-        Log.d("测试的鼎新demo", "updateTime: "+updateTime);
+
         HttpServiceIml.getCinemasSeatStatus(cid, playId, updateTime).
                 subscribe(new Subscriber<List<aCinemaSeatTableBO>>() {
                     @Override

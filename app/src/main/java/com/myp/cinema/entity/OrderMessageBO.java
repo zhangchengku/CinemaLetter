@@ -1,7 +1,5 @@
 package com.myp.cinema.entity;
 
-import com.myp.cinema.ui.accountbalance.PaysuccessActivity;
-
 import java.io.Serializable;
 
 /**

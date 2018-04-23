@@ -22,6 +22,7 @@ import com.myp.cinema.entity.OrderNumBO;
 import com.myp.cinema.entity.PayBO;
 import com.myp.cinema.entity.PayCardBO;
 import com.myp.cinema.entity.RechBo;
+import com.myp.cinema.entity.RefundBO;
 import com.myp.cinema.entity.ResuBo;
 import com.myp.cinema.entity.SessionBO;
 import com.myp.cinema.entity.ShareBO;
@@ -34,13 +35,12 @@ import com.myp.cinema.entity.WXPayBO;
 import com.myp.cinema.entity.preferentialnumberBo;
 import com.myp.cinema.entity.threelandingBo;
 import com.myp.cinema.ui.Prizesreading.HomeTopBean;
-import com.myp.cinema.ui.accountbalance.RechatBo;
+import com.myp.cinema.entity.RechatBo;
 
 import java.util.List;
 
 
 import okhttp3.RequestBody;
-import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.Multipart;
@@ -55,10 +55,10 @@ import rx.Observable;
  */
 
 public interface HttpInterface {
-    String URL = "http://192.168.1.54:8080";    //董测试服11123132
+//    String URL = "http://192.168.1.54:8080";    //董测试服11123132
 //    String URL = "http://hyg.happydoit.com";//好易购服务器
 //    String URL = "https://ruiduo.happydoit.com";
-//String URL = "http://dxm.happydoit.com";  //12、1正式服
+String URL = "http://dxm.happydoit.com";  //12、1正式服
     /**
      * 登陆用户
      */

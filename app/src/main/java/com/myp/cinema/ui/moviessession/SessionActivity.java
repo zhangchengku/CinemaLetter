@@ -204,7 +204,6 @@ public class SessionActivity extends MVPBaseActivity<SessionContract.View, Sessi
     @Override
     public void getOrderCancle(OrderNumBO orderNumBO) {
         if (orderNumBO.getIsVip() == null) {
-            Log.d("sdfasdfasdfsadf", "kong: ");
         }
         isone = 1;
         if (!StringUtils.isEmpty(orderNumBO.getOrderNum())) {
@@ -444,7 +443,6 @@ public class SessionActivity extends MVPBaseActivity<SessionContract.View, Sessi
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Log.d("bubugbugbuggbugbugg", "onItemClick: " + isone);
         if (MyApplication.isLogin == ConditionEnum.NOLOGIN) {  //未登录进入登陆
             Intent intent = new Intent(this, LoginActivity.class);
             startActivityForResult(intent, 1);

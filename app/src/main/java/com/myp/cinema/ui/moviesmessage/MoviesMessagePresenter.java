@@ -169,7 +169,6 @@ public class MoviesMessagePresenter extends BasePresenterImpl<MoviesMessageContr
 
             @Override
             public void onError(Throwable e) {
-                Log.d("bugbugbugbugbugbug", "onError: "+e.getMessage());
                 if (mView != null) {
                     mView.onRequestError(e.getMessage());
                 }
@@ -177,7 +176,6 @@ public class MoviesMessagePresenter extends BasePresenterImpl<MoviesMessageContr
 
             @Override
             public void onNext(CriticBO s) {
-                Log.d("bugbugbugbugbugbug", "onNext: "+s);
                 if (mView != null) {
                     mView.getDianZan(s,position);
                 }

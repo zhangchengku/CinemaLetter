@@ -454,12 +454,10 @@ public class SeatTable extends View {
             }
             canvas.drawBitmap(overviewBitmap, 0, 0, null);
             drawOverview(canvas);
-            Log.d("drawTime", "OverviewDrawTime:" + (System.currentTimeMillis() - s));
         }
 
         if (DBG) {
             long drawTime = System.currentTimeMillis() - startTime;
-            Log.d("drawTime", "totalDrawTime:" + drawTime);
         }
     }
 
@@ -701,7 +699,6 @@ public class SeatTable extends View {
         }
         if (DBG) {
             long drawTime = System.currentTimeMillis() - startTime;
-            Log.d("drawTime", "seatDrawTime:" + drawTime);
         }
     }
 
@@ -777,7 +774,6 @@ public class SeatTable extends View {
         }
 
         if (DBG) {
-            Log.d("drawTest:", "top:" + top);
         }
     }
 
@@ -811,7 +807,6 @@ public class SeatTable extends View {
 
         if (DBG) {
             long drawTime = System.currentTimeMillis() - startTime;
-            Log.d("drawTime", "drawNumberTime:" + drawTime);
         }
     }
 
@@ -1104,7 +1099,6 @@ public class SeatTable extends View {
             zoom = (Float) animation.getAnimatedValue();
             zoom(zoom);
             if (DBG) {
-                Log.d("zoomTest", "zoom:" + zoom);
             }
         }
 

@@ -40,7 +40,6 @@ public class WebViewActivity extends BaseWebActivity
     LinearLayout goBack;
     @Bind(R.id.fenxiang_img)
     ImageView fenxiangimg;
-
     @Bind(R.id.linear)
     LinearLayout linear;
     String url;

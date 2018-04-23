@@ -62,7 +62,6 @@ public class SessionPresenter extends BasePresenterImpl<SessionContract.View>
 
             @Override
             public void onError(Throwable e) {
-                Log.d("sdhfjkha;s", "onError: "+e.getMessage());
                 if (mView == null)
                     return;
                 mView.onRequestError(e.getMessage());
@@ -70,7 +69,6 @@ public class SessionPresenter extends BasePresenterImpl<SessionContract.View>
 
             @Override
             public void onNext(OrderNumBO orderNumBO) {
-                Log.d("sdhfjkha;s", "onNext: "+"成功");
                 if (mView == null)
                     return;
                 mView.getCheckOrder(orderNumBO);

@@ -1,45 +1,16 @@
 package com.myp.cinema.ui.personorder;
 
 
-import android.content.Intent;
 import android.graphics.Color;
-import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ListView;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.myp.cinema.R;
 import com.myp.cinema.base.BaseActivity;
-import com.myp.cinema.base.MyApplication;
-import com.myp.cinema.entity.OrderBO;
-import com.myp.cinema.mvp.MVPBaseActivity;
-import com.myp.cinema.ui.personcollect.articleFragment;
-import com.myp.cinema.ui.personcollect.movieFragment;
-import com.myp.cinema.ui.personorder.notpaymessage.NotPayMessageActivity;
-import com.myp.cinema.ui.personorder.ordermessage.OrderMessageActivity;
-import com.myp.cinema.ui.tuipiaoxiangqing.tuipiaoxiangqing;
-import com.myp.cinema.util.CimemaUtils;
-import com.myp.cinema.util.LogUtils;
-import com.myp.cinema.util.StringUtils;
-import com.myp.cinema.widget.superadapter.CommonAdapter;
-import com.myp.cinema.widget.superadapter.ViewHolder;
-import com.myp.cinema.widget.swiferefresh.SwipeRefreshVie;
-import com.myp.cinema.widget.swiferefresh.SwipeRefreshView;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import butterknife.Bind;
 import butterknife.OnClick;

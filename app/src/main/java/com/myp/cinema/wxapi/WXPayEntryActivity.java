@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import com.myp.cinema.config.LocalConfiguration;
-import com.myp.cinema.ui.accountbalance.PaysuccessActivity;
+import com.myp.cinema.ui.paysuccess.PaysuccessActivity;
 import com.myp.cinema.ui.orderconfrim.OrderSurcessActivity;
 import com.tencent.mm.opensdk.modelbase.BaseReq;
 import com.tencent.mm.opensdk.modelbase.BaseResp;

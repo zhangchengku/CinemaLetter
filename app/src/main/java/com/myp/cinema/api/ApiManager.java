@@ -157,7 +157,6 @@ public class ApiManager {
             Headers headers = response.headers();
             //获取cookie
             String cookies = headers.get("Set-Cookie");
-            Log.d("webviewwebviewwebview", "manager: "+cookies);
             if (cookies != null) {
                 String cookie[] = cookies.split(";");
                 if (cookie != null && cookie.length != 0) {

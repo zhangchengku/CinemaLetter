@@ -69,28 +69,6 @@
                 </RelativeLayout>
             </LinearLayout>
 
-            <RelativeLayout
-                android:id="@+id/view_pager_parent"
-                android:layout_width="match_parent"
-                android:layout_height="135dp">
-
-                <android.support.v7.widget.RecyclerView
-                    android:id="@+id/viewpager"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_centerInParent="true"
-                    android:layout_gravity="center"
-                    android:background="@drawable/movies_detail_bg" />
-
-                <ImageView
-                    android:layout_width="15dp"
-                    android:layout_height="8dp"
-                    android:layout_alignParentBottom="true"
-                    android:layout_centerHorizontal="true"
-                    android:background="@drawable/sanjiao" />
-
-            </RelativeLayout>
-
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -234,5 +212,27 @@
 
         </LinearLayout>
     </ScrollView>
+
+    <RelativeLayout
+        android:id="@+id/view_pager_parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:background="@drawable/movies_detail_bg" />
+
+        <ImageView
+            android:layout_width="15dp"
+            android:layout_height="8dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/sanjiao" />
+
+    </RelativeLayout>
 
 </LinearLayout>

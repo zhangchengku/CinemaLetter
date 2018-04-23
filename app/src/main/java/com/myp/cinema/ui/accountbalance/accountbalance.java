@@ -4,22 +4,18 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.text.TextPaint;
-import android.util.Log;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.myp.cinema.R;
 import com.myp.cinema.base.BaseActivity;
-import com.myp.cinema.ui.balance.balance;
-
-import java.text.DecimalFormat;
+import com.myp.cinema.ui.detailed.detailed;
 
 import butterknife.Bind;
 import butterknife.OnClick;
 
-/**
+/**会员卡余额页面
  * Created by Administrator on 2018/1/24.
  */
 
@@ -64,7 +60,7 @@ public class accountbalance extends BaseActivity {
 
     @OnClick(R.id.recharge_bu)
     public void onViewClicked() {
-        Intent rechatge = new Intent(accountbalance.this, rechatge.class);
+        Intent rechatge = new Intent(accountbalance.this, com.myp.cinema.ui.rechatge.rechatge.class);
         rechatge.putExtra("cardPrice", value);
         rechatge.putExtra("cardcode",  cardcode);
 //        Log.d("支付宝充值", "固定金额 " + cardcode);
@@ -75,13 +71,13 @@ public class accountbalance extends BaseActivity {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.my_balance:
-                Intent rechatg = new Intent(accountbalance.this, balance.class);
+                Intent rechatg = new Intent(accountbalance.this, detailed.class);
                 rechatg.putExtra("mingxi", "1");
                 rechatg.putExtra("cardcode", cardcode);
                 startActivity(rechatg);
                 break;
             case R.id.my_mingxi:
-                Intent rechatge = new Intent(accountbalance.this, balance.class);
+                Intent rechatge = new Intent(accountbalance.this, detailed.class);
                 rechatge.putExtra("mingxi","2");
                 rechatge.putExtra("cardcode", cardcode);
                 startActivity(rechatge);

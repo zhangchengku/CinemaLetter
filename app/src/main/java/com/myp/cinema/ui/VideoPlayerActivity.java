@@ -63,28 +63,23 @@ public class VideoPlayerActivity extends BaseActivity implements EasyVideoCallba
 
     @Override
     public void onPreparing(EasyVideoPlayer player) {
-        Log.d("EVP-Sample", "onPreparing()");
     }
 
     @Override
     public void onPrepared(EasyVideoPlayer player) {
-        Log.d("EVP-Sample", "onPrepared()");
     }
 
     @Override
     public void onBuffering(int percent) {
-        Log.d("EVP-Sample", "onBuffering(): " + percent + "%");
     }
 
     @Override
     public void onError(EasyVideoPlayer player, Exception e) {
-        Log.d("EVP-Sample", "onError(): " + e.getMessage());
 
     }
 
     @Override
     public void onCompletion(EasyVideoPlayer player) {
-        Log.d("EVP-Sample", "onCompletion()");
     }
 
     @Override

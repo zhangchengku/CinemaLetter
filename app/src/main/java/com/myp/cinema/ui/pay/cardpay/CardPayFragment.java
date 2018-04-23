@@ -24,8 +24,8 @@ import com.myp.cinema.entity.OrderBO;
 import com.myp.cinema.entity.PayCardBO;
 import com.myp.cinema.entity.ResuBo;
 import com.myp.cinema.mvp.MVPBaseFragment;
-import com.myp.cinema.ui.accountbalance.rechatge;
-import com.myp.cinema.ui.membercard1.AddCardActiivty;
+import com.myp.cinema.ui.rechatge.rechatge;
+import com.myp.cinema.ui.membercard.AddCardActiivty;
 import com.myp.cinema.ui.orderconfrim.OrderSurcessActivity;
 import com.myp.cinema.util.LogUtils;
 import com.myp.cinema.util.MD5;
@@ -145,7 +145,6 @@ public class CardPayFragment extends MVPBaseFragment<CardPayContract.View, CardP
 
     @Override
     public void onRequestError(String msg) {
-        Log.d("onRequestErroronReError", ""+msg);
         if(msg.equals("会员卡余额不足")){
             showDialog2(msg);
         }else {
@@ -213,8 +212,6 @@ public class CardPayFragment extends MVPBaseFragment<CardPayContract.View, CardP
                 LocalConfiguration.isShouye = "1";
                 rechatge.putExtra("cardPrice", cardPrice);
                 rechatge.putExtra("cardcode",  cardNumber);
-                Log.d("yuebuzubug", "====" + cardPrice);
-                Log.d("yuebuzubug", "====" + cardNumber);
                 startActivity(rechatge);
             }
         });

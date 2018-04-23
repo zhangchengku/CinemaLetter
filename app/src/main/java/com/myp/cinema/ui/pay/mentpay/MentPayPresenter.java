@@ -81,7 +81,6 @@ public class MentPayPresenter extends BasePresenterImpl<MentPayContract.View>
 
             @Override
             public void onError(Throwable e) {
-                Log.d("Throwable", "onError: "+e.getMessage());
                 if (mView == null)
                     return;
                 mView.onRequestError(e.getMessage());
@@ -89,7 +88,6 @@ public class MentPayPresenter extends BasePresenterImpl<MentPayContract.View>
 
             @Override
             public void onNext(ResuBo s) {
-                Log.d("Throwable", "onError: "+s);
                 if (mView == null)
                     return;
                 mView.getcardPay(s);

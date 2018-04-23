@@ -14,7 +14,6 @@ import android.widget.TextView;
 import com.myp.cinema.R;
 import com.myp.cinema.entity.FeedBackListBO;
 import com.myp.cinema.mvp.MVPBaseActivity;
-import com.myp.cinema.ui.FeedBackActivity;
 import com.myp.cinema.util.LogUtils;
 import com.myp.cinema.widget.superadapter.CommonAdapter;
 import com.myp.cinema.widget.superadapter.ViewHolder;
@@ -25,7 +24,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 
-/**
+/**意见反馈列表
  * MVPPluginhFeedBackListActivity
  * 邮箱 784787081@qq.com
  */

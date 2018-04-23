@@ -293,7 +293,6 @@ public class PhoneUtils {
      * <p>参照以下注释代码</p>
      */
     public static void getContactNum() {
-        Log.d("tips", "U should copy the following code.");
         /*
         Intent intent = new Intent();
         intent.setAction("android.intent.action.PICK");

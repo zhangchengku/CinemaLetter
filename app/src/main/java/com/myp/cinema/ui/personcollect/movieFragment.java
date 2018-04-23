@@ -121,7 +121,6 @@ public class movieFragment extends MVPBaseFragment<movieContract.View, moviePres
 
     @Override
     public void getCollectList(List<MoviesByCidBO> moviesByCidBOs,int page) {
-        Log.d("retrofit", "得到结果 ");
             if(page==1){
                 if(moviesByCidBOs.size()==0){
                     smartRefreshLayout.setVisibility(View.GONE);

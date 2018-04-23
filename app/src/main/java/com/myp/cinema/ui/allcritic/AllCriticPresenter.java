@@ -28,7 +28,6 @@ public class AllCriticPresenter extends BasePresenterImpl<AllCriticContract.View
 
             @Override
             public void onError(Throwable e) {
-                Log.d("电影评论数据", "onError: "+e.getMessage());
                 if (mView != null) {
                     mView.onRequestError(e.getMessage());
                 }
@@ -36,7 +35,6 @@ public class AllCriticPresenter extends BasePresenterImpl<AllCriticContract.View
 
             @Override
             public void onNext(List<CriticBO> s) {
-                Log.d("电影评论数据", "onNext: "+s.size());
                 if (mView != null) {
                     mView.getCritic(s,pageNo);
                 }
@@ -55,7 +53,6 @@ public class AllCriticPresenter extends BasePresenterImpl<AllCriticContract.View
 
             @Override
             public void onError(Throwable e) {
-                Log.d("电影评论数据", "onError: "+e.getMessage());
                 if (mView != null) {
                     mView.onRequestError(e.getMessage());
                 }
@@ -63,7 +60,6 @@ public class AllCriticPresenter extends BasePresenterImpl<AllCriticContract.View
 
             @Override
             public void onNext(CriticBO s) {
-                Log.d("点赞数据", "onNext: "+s.getUpvoteStatus());
                 if (mView != null) {
                     mView.getDianZan(s,position);
                 }

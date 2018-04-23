@@ -21,7 +21,6 @@ public class moviePresenter extends BasePresenterImpl<movieContract.View> implem
 
     @Override
     public void loadCollectMovie(String appUserId,final  int page) {
-        Log.d("retrofit", "进行请求 ");
         HttpInterfaceIml.personCollectList(appUserId,page+"").subscribe(new Subscriber<List<MoviesByCidBO>>() {
             @Override
             public void onCompleted() {

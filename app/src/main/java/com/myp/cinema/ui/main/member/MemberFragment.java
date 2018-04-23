@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,11 +20,10 @@ import com.myp.cinema.base.MyApplication;
 import com.myp.cinema.config.ConditionEnum;
 import com.myp.cinema.entity.UserBO;
 import com.myp.cinema.mvp.MVPBaseFragment;
-import com.myp.cinema.ui.FeedBackActivity;
 import com.myp.cinema.ui.SettingActivity;
 import com.myp.cinema.ui.feedbacklist.FeedBackListActivity;
 
-import com.myp.cinema.ui.membercard1.MemberCard1Activity;
+import com.myp.cinema.ui.membercard.MemberCardActivity;
 import com.myp.cinema.ui.personcollect.PersonCollectActivity2;
 import com.myp.cinema.ui.personcomment.PersonCommentActivity;
 import com.myp.cinema.ui.personcoupon.PersonCouponActivity;
@@ -164,7 +162,7 @@ public class MemberFragment extends MVPBaseFragment<MemberContract.View, MemberP
                 break;
             case R.id.member_card:   //我的会员卡
                 if (goLogin()) {
-                    gotoActivity(MemberCard1Activity.class, false);
+                    gotoActivity(MemberCardActivity.class, false);
                 }
                 break;
             case R.id.youhuijuan:   //我的优惠卷
