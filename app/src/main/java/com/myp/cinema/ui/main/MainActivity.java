@@ -77,7 +77,7 @@ public class MainActivity extends MVPBaseActivity<MainContract.View, MainPresent
         huiyuan.setOnClickListener(this);
         baiduMapLoctionUtils = new BaiduMapLoctionUtils();
         getPermission();
-        new UpdateManager(this, "main").checkUpdate();   //检查更新SD
+        new UpdateManager(this, "main").checkUpdate();   //检查更新
     }
 
     /**
