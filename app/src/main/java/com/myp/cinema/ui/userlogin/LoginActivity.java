@@ -334,6 +334,7 @@ public class LoginActivity extends MVPBaseActivity<LoginContract.View, LoginPres
                 userId = platform.getDb().getUserId();//获取用户账号
                 userName = platform.getDb().getUserName();//获取用户名字
                 userIcon = platform.getDb().getUserIcon();//获取用户头像
+                Log.d("sdfkasjdfkl", "setDatas: "+userIcon);
                 userGender = platform.getDb().getUserGender();
                 if (style == 1) {
                     wxUserId = null;

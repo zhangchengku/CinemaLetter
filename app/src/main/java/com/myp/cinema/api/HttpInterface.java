@@ -55,9 +55,9 @@ import rx.Observable;
  */
 
 public interface HttpInterface {
-//    String URL = "http://192.168.1.54:8080";    //董测试服11123132
+//    String URL = "http://192.168.1.54:8088";    //董测试服11123132
 //    String URL = "http://hyg.happydoit.com";//好易购服务器
-//    String URL = "https://ruiduo.happydoit.com";
+//String URL = "http://192.168.1.64:80";    //董测试服11123132
 String URL = "http://dxm.happydoit.com";  //12、1正式服
     /**
      * 登陆用户

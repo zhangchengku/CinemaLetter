@@ -285,12 +285,12 @@ public class SeatTable extends View {
     /**
      * 默认的座位图宽度,如果使用的自己的座位图片比这个尺寸大或者小,会缩放到这个大小
      */
-    private float defaultImgW = 64;
+    private float defaultImgW = 74;
 
     /**
      * 默认的座位图高度
      */
-    private float defaultImgH = 62;
+    private float defaultImgH = 72;
 
     /**
      * 座位图片的宽度

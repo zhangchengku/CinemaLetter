@@ -77,7 +77,7 @@ public class MainActivity extends MVPBaseActivity<MainContract.View, MainPresent
         huiyuan.setOnClickListener(this);
         baiduMapLoctionUtils = new BaiduMapLoctionUtils();
         getPermission();
-        new UpdateManager(this, "main").checkUpdate();   //检查更新
+        new UpdateManager(this, "main").checkUpdate();   //检查更新SD
     }
 
     /**
@@ -126,6 +126,7 @@ public class MainActivity extends MVPBaseActivity<MainContract.View, MainPresent
         return Manifest.permission.ACCESS_COARSE_LOCATION.equals(permission) ||
                 super.shouldShowRequestPermissionRationale(permission);
     }
+
 
 
     /**

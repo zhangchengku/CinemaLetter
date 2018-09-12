@@ -59,6 +59,7 @@ public class AddCardActiivty extends BaseActivity implements View.OnClickListene
         switch (v.getId()) {
             case R.id.submit_button:
                 if (isCardNum()) {
+                    submitButton.setEnabled(false);
                     bingCard();
                 }
                 break;
@@ -104,10 +105,12 @@ public class AddCardActiivty extends BaseActivity implements View.OnClickListene
                     @Override
                     public void onError(Throwable e) {
                         LogUtils.showToast(e.getMessage());
+                        submitButton.setEnabled(true);
                     }
 
                     @Override
                     public void onNext(CardBO s) {
+                        submitButton.setEnabled(true);
                         LogUtils.showToast("绑定成功!");
                         Intent intent = new Intent();
                         setResult(1, intent);

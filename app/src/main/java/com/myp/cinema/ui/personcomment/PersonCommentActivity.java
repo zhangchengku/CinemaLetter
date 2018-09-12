@@ -71,6 +71,7 @@ public class PersonCommentActivity extends MVPBaseActivity<PersonCommentContract
         goBack();
         setTitle("我的影评");
         mPresenter.loadPersonComment(MyApplication.user.getId(),1);
+        showProgress("加载中...");
         setPullRefresher();
         adapter();
 
@@ -140,11 +141,13 @@ public class PersonCommentActivity extends MVPBaseActivity<PersonCommentContract
 
     @Override
     public void onRequestError(String msg) {
+        stopProgress();
         LogUtils.showToast(msg);
     }
 
     @Override
     public void onRequestEnd(){
+        stopProgress();
     }
 
     @Override

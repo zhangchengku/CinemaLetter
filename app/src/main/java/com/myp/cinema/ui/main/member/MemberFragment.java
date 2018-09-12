@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -245,6 +246,7 @@ public class MemberFragment extends MVPBaseFragment<MemberContract.View, MemberP
         moviesWantSeeNum.setText(userBO.getWantseeNum());
         moviesReadNum.setText(userBO.getWatchedNum());
         moviesCollectNum.setText(userBO.getCollectNum());
+        Log.d("sdfkasjdfkl", "setDatas: "+userBO.getCollectNum());
     }
 
 

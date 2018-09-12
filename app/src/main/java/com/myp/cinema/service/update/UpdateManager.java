@@ -217,12 +217,13 @@ public class UpdateManager {
                 minVersionCode = Integer.valueOf(appVersionBO.getAndroid().getMinVersionCode());
                 minVersionName = appVersionBO.getAndroid().getMinVersionName();
                 // 版本判断
-                if (serverVersionCode > currentVersionCode) {//可选择更新
-                    showUpdateDialog();
-                    return;
-                }
+
                 if (minVersionCode > currentVersionCode) {//必须更新
                     showMustUpdateDialog();
+                    return;
+                }
+                if (serverVersionCode > currentVersionCode) {//可选择更新
+                    showUpdateDialog();
                     return;
                 }
             }

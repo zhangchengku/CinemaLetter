@@ -11,6 +11,7 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageView;
@@ -167,8 +168,12 @@ public class PresellMoviesActivity extends MVPBaseActivity<PresellMoviesContract
                 break;
         }
         moviesNarrate.setText(moviesByCidBO.getIntroduction());
-        if (moviesByCidBO.getDxVideos() != null && moviesByCidBO.getDxVideos().size() != 0) {
-            Picasso.with(this).load(moviesByCidBO.getDxVideos().get(0).getPicture()).into(videoImg);
+        if (moviesByCidBO.getDxVideos() != null && moviesByCidBO.getDxVideos().size() != 0 ) {
+            if(!StringUtils.isEmpty(moviesByCidBO.getDxVideos().get(0).getPicture())){
+                Picasso.with(this).load(moviesByCidBO.getDxVideos().get(0).getPicture()).into(videoImg);
+            }else {
+                video.setVisibility(View.GONE);
+            }
         } else {
             video.setVisibility(View.GONE);
         }

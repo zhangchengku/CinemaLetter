@@ -285,6 +285,7 @@ public class MoviesMessageActivity extends MVPBaseActivity<MoviesMessageContract
                 setBigImageShow(photos, "演员剧照", position);
             }
         });
+
         personRecycle.setAdapter(adapter);
     }
 
